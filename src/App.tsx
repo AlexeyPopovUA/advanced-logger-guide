@@ -1,18 +1,14 @@
 import * as React from 'react';
 import './styles/App.css';
 import {BrowserRouter as Router, Link, Route} from "react-router-dom";
+import About from "./page/About";
+import Releases from "./page/Releases";
+import Contacts from "./page/Contacts";
+import API from "./page/API";
+import Footer from "./Footer";
 
 class App extends React.Component {
     public render() {
-        const styleMain = {
-            "marginLeft": "250px"
-        };
-
-        const About = () => <h2>About</h2>;
-        const Api = () => <h2>Api</h2>;
-        const Releases = () => <h2>Releases</h2>;
-        const Contacts = () => <h2>Contacts</h2>;
-
         return (
             <Router>
                 <>
@@ -23,7 +19,7 @@ class App extends React.Component {
                                    href="javascript:void(0)" onClick={this.w3_open}><i className="fa fa-bars"/></a>
                                 <a
                                     className="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1"
-                                    >Advanced Logger</a>
+                                >Advanced Logger</a>
                                 <Link className="w3-bar-item w3-button w3-hide-small w3-hover-white"
                                       to="/api">API</Link>
                                 <Link className="w3-bar-item w3-button w3-hide-small w3-hover-white"
@@ -41,40 +37,26 @@ class App extends React.Component {
                            title="Close Menu">
                             <i className="fa fa-remove"/>
                         </a>
-                        <h4 className="w3-bar-item"><b>API Menu</b></h4>
-                        <a className="w3-bar-item w3-button w3-hover-black" href="#">Getting started</a>
-                        <a className="w3-bar-item w3-button w3-hover-black" href="#">Services</a>
-                        <a className="w3-bar-item w3-button w3-hover-black" href="#">Strategies</a>
+                        <h4 className="w3-bar-item"><b>Menu</b></h4>
+                        <Link className="w3-bar-item w3-button w3-hide-small w3-hover-black"
+                              to="/api">API</Link>
+                        <Link className="w3-bar-item w3-button w3-hide-small w3-hover-black"
+                              to="/releases">Releases</Link>
+                        <Link className="w3-bar-item w3-button w3-hide-small w3-hover-black"
+                              to="/contacts">Contacts</Link>
                     </nav>
-
 
                     <div className="w3-overlay w3-hide-large" onClick={this.w3_close} title="close side menu"
                          id="myOverlay"/>
 
 
-                    <div className="w3-main w3-padding-32" style={styleMain}>
+                    <div className="w3-main w3-padding-32 main-container">
                         <Route path="/" exact={true} component={About}/>
-                        <Route path="/api/" component={Api}/>
+                        <Route path="/api/" component={API}/>
                         <Route path="/releases/" component={Releases}/>
                         <Route path="/contacts/" component={Contacts}/>
 
-                        <div className="w3-row w3-padding-24">
-                            <div className="w3-container">
-                                <h1 className="w3-text-teal">Heading</h1>
-                                <p>text</p>
-                            </div>
-                        </div>
-
-                        <footer id="myFooter">
-                            <div className="w3-container w3-theme-l2 w3-padding-32">
-                                <h4>Footer</h4>
-                            </div>
-
-                            <div className="w3-container w3-theme-l1">
-                                <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp"
-                                                 target="_blank">w3.css</a></p>
-                            </div>
-                        </footer>
+                        <Footer/>
                     </div>
                 </>
             </Router>
