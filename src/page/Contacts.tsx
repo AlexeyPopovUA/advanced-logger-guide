@@ -4,9 +4,9 @@ export default class Contacts extends React.Component {
     public render() {
         return (
             <div className="page-content page-contacts">
-                <h1>Contacts</h1>
+                <h1 className="w3-text-teal">Contacts</h1>
                 <div className="page-content">
-                    <p>Contacts page text</p>
+                    <p>TODO Contacts page text</p>
                 </div>
             </div>
         );

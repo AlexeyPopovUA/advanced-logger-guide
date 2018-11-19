@@ -4,9 +4,9 @@ export default class API extends React.Component {
     public render() {
         return (
             <div className="page-content page-api">
-                <h1>API</h1>
+                <h1 className="w3-text-teal">API</h1>
                 <div className="page-content">
-                    <p>API page text</p>
+                    <p>TODO API page text</p>
                 </div>
             </div>
         );

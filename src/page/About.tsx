@@ -3,8 +3,8 @@ import * as React from "react";
 export default class About extends React.Component {
     public render() {
         return (
-            <article className="page-content page-about w3-container">
-                <h1>About</h1>
+            <article className="page-content page-about">
+                <h1 className="w3-text-teal">About</h1>
                 <div className="page-content">
                     <h2>The idea</h2>
                     <p>The main idea of this module is to create an isomorphic log sending tool, that can be extended by

@@ -41,7 +41,7 @@ class App extends React.Component {
 
                     <Overlay handleClick={this.closeSidebar}/>
 
-                    <div className="w3-main w3-padding-32 main-container">
+                    <div className="w3-main w3-padding-32 main-container w3-container">
                         <Route path="/" exact={true} component={About}/>
                         <Route path="/api/" component={API}/>
                         <Route path="/releases/" component={Releases}/>
