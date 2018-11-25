@@ -15,9 +15,8 @@
     "test": "jest",
     "coverage": "npm test -- --coverage --no-cache",
     "build-prod": "webpack --config webpack.config.js --env.prod",
-    "build-release": "webpack --config webpack.config.js --env.prod --env.release",
     "build-dev": "webpack --config webpack.config.js  --env.dev",
-    "dev": "webpack-dev-server --config webpack.config.js  --env.dev",
+    "dev": "webpack-dev-server --config webpack.config.js  --env.dev --env.watch",
     "deploy": "gh-pages -d build"
   },
   "devDependencies": {
