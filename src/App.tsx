@@ -1,13 +1,17 @@
 import * as React from 'react';
 import './styles/App.css';
+import "prismjs/themes/prism.css"
 import {HashRouter, Link, Route} from "react-router-dom";
 import About from "./page/About";
 import Releases from "./page/Releases";
 import Contacts from "./page/Contacts";
-import API from "./page/API";
 import Footer from "./Footer";
 import Overlay from "./component/Overlay";
 import {MouseEvent} from "react";
+import Start from "./page/Start";
+import Strategy from "./page/Strategy";
+import Service from "./page/Service";
+import Grouping from "./page/Grouping";
 
 class App extends React.Component {
     constructor(props: any) {
@@ -50,7 +54,7 @@ class App extends React.Component {
                         <div className="w3-dropdown-click w3-mobile">
                             <button onClick={this.onAPIBtnClick} className="w3-bar-item w3-button w3-hover-black api-nav-button">API</button>
                             <div className="w3-dropdown-content w3-bar-block w3-border">
-                                <Link className="w3-bar-item w3-button w3-hover-black" to="/api/getstarted">Getting started</Link>
+                                <Link className="w3-bar-item w3-button w3-hover-black" to="/api/start">Getting started</Link>
                                 <Link className="w3-bar-item w3-button w3-hover-black" to="/api/strategy">Strategy</Link>
                                 <Link className="w3-bar-item w3-button w3-hover-black" to="/api/service">Service</Link>
                                 <Link className="w3-bar-item w3-button w3-hover-black" to="/api/grouping">Grouping</Link>
@@ -64,10 +68,10 @@ class App extends React.Component {
 
                     <div className="w3-main w3-padding-32 main-container w3-container">
                         <Route path="/" exact={true} component={About}/>
-                        <Route path="/api/start" component={API}/>
-                        <Route path="/api/strategy" component={API}/>
-                        <Route path="/api/service" component={API}/>
-                        <Route path="/api/grouping" component={API}/>
+                        <Route path="/api/start" component={Start}/>
+                        <Route path="/api/strategy" component={Strategy}/>
+                        <Route path="/api/service" component={Service}/>
+                        <Route path="/api/grouping" component={Grouping}/>
                         <Route path="/releases/" component={Releases}/>
                         <Route path="/contacts/" component={Contacts}/>
                     </div>
