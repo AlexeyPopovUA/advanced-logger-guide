@@ -6,11 +6,10 @@
   },
   "homepage": "https://alexeypopovua.github.io/advanced-logger-guide",
   "dependencies": {
-    "gh-pages": "^2.0.1",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts-ts": "^4.0.8"
+    "prismjs": "latest"
   },
   "scripts": {
     "start": "react-scripts-ts start",
@@ -21,8 +20,11 @@
     "deploy": "gh-pages -d build"
   },
   "devDependencies": {
+    "gh-pages": "^2.0.1",
+    "react-scripts-ts": "^4.0.8",
     "@types/jest": "^23.3.9",
     "@types/node": "^10.12.3",
+    "@types/prismjs": "^1.9.0",
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
     "@types/react-router-dom": "^4.3.1",
