@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <%= htmlWebpackPlugin.options.GOOGLE_ANALYTICS_SCRIPT %>
+    <script>
+        if (<%= htmlWebpackPlugin.options.PRODUCTION %>) {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-127711409-2');
+        }
+    </script>
+    <script src="<%= htmlWebpackPlugin.files.chunks.index.entry %>"></script>
+    <title>Advanced Logger Guide</title>
+    <noscript>
+        You need to enable JavaScript to run this app.
+    </noscript>
+</head>
+<body>
+</body>
+</html>
