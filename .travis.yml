@@ -9,7 +9,7 @@ install:
   - npm test
 
 script:
-  - npm run build
+  - npm run build-prod
 
 deploy:
   provider: pages
