@@ -20,7 +20,7 @@
     "deploy": "gh-pages -d build"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.9",
+    "@types/jest": "^23.3.10",
     "@types/node": "^10.12.3",
     "@types/prismjs": "^1.9.0",
     "@types/react": "^16.4.18",
