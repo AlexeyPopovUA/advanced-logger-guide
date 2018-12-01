@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -10,7 +9,7 @@ module.exports = env => {
     console.log(env);
 
     const mode = env.prod ? 'production' : 'development';
-    const destinationPath = env.release ? 'docs' : 'dist';
+    const destinationPath = 'dist';
     const watch = env.watch;
 
     return {
@@ -69,7 +68,7 @@ module.exports = env => {
                 ]
             }),
             new CopyWebpackPlugin([
-                {from: './resources/manifest.json', to: "./manifest.json", flatten: true},
+                {from: './resources/manifest.json', to: "./", flatten: true},
                 {from: './images', to: "./"},
             ]),
             //new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
