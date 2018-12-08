@@ -1,23 +1,23 @@
 import * as React from 'react';
 import {MouseEvent} from "react";
 import {HashRouter, Link, Route} from "react-router-dom";
+import loadable from 'react-loadable';
 import './../styles/App.scss';
 import "./../styles/prism.scss";
+import "./../styles/loader.scss";
 import About from "./page/About";
-import Releases from "./page/Releases";
-import Contacts from "./page/Contacts";
 import Footer from "./Footer";
 import Overlay from "./component/Overlay";
-import Start from "./page/Start";
-import Strategy from "./page/Strategy";
-import Service from "./page/Service";
-import Grouping from "./page/Grouping";
 
 class App extends React.Component {
     constructor(props: any) {
         super(props);
 
         this.onAPIBtnClick = this.onAPIBtnClick.bind(this);
+    }
+
+    private loading () {
+        return <div className="w3-display-container"><div className="loader w3-padding w3-display-topleft"/></div>;
     }
 
     public render() {
@@ -68,12 +68,36 @@ class App extends React.Component {
 
                     <div className="w3-main w3-padding-32 main-container w3-container">
                         <Route path="/" exact={true} component={About}/>
-                        <Route path="/api/start" component={Start}/>
-                        <Route path="/api/strategy" component={Strategy}/>
-                        <Route path="/api/service" component={Service}/>
-                        <Route path="/api/grouping" component={Grouping}/>
-                        <Route path="/releases/" component={Releases}/>
-                        <Route path="/contacts/" component={Contacts}/>
+                        <Route path="/api/start"
+                               component={loadable({
+                                   loader: () => import("./page/Start"),
+                                   loading: this.loading,
+                               })}/>
+                        <Route path="/api/strategy"
+                               component={loadable({
+                                   loader: () => import("./page/Strategy"),
+                                   loading: this.loading,
+                               })}/>
+                        <Route path="/api/service"
+                               component={loadable({
+                                   loader: () => import("./page/Service"),
+                                   loading: this.loading,
+                               })}/>
+                        <Route path="/api/grouping"
+                               component={loadable({
+                                   loader: () => import("./page/Grouping"),
+                                   loading: this.loading,
+                               })}/>
+                        <Route path="/releases/"
+                               component={loadable({
+                                   loader: () => import("./page/Releases"),
+                                   loading: this.loading,
+                               })}/>
+                        <Route path="/contacts/"
+                               component={loadable({
+                                   loader: () => import("./page/Contacts"),
+                                   loading: this.loading,
+                               })}/>
                     </div>
 
                     <Footer/>

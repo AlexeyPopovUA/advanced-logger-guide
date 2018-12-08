@@ -6,10 +6,11 @@
   },
   "homepage": "https://alexeypopovua.github.io/advanced-logger-guide",
   "dependencies": {
+    "prismjs": "latest",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
-    "react-router-dom": "^4.3.1",
-    "prismjs": "latest"
+    "react-loadable": "^5.5.0",
+    "react-router-dom": "^4.3.1"
   },
   "scripts": {
     "test": "jest",
@@ -25,6 +26,7 @@
     "@types/prismjs": "^1.9.0",
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
+    "@types/react-loadable": "^5.4.2",
     "@types/react-router-dom": "^4.3.1",
     "awesome-typescript-loader": "^5.2.1",
     "clean-webpack-plugin": "^1.0.0",
