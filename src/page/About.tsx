@@ -40,7 +40,7 @@ export default class About extends React.Component {
                         <br/>NodeJS - tested on latest lts
                         <br/>Browser - all latest browsers + IE10, IE11 (fetch polyfill)</p>
                     <h2>Usage</h2>
-                    Please, find working examples for browser and nodejs environments in <i>/example</i> folder.
+                    <p>Please, find working examples for browser and nodejs environments in <i>/example</i> folder.</p>
                 </div>
             </article>
         );

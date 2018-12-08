@@ -39,7 +39,7 @@ export default class Strategy extends React.Component {
                     <pre className="code-snippet" dangerouslySetInnerHTML={{__html: html4}}/>
 
                     <h3>Custom implementation of strategy</h3>
-                    <i>@TODO</i>
+                    <p><i>@TODO</i></p>
                 </div>
             </article>
         );
