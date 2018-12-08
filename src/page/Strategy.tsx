@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as Prism from "prismjs";
 
 export default class Strategy extends React.Component {
     public render() {
@@ -6,16 +7,72 @@ export default class Strategy extends React.Component {
             <article className="page-content page-strategy">
                 <h1 className="w3-text-teal">Strategy</h1>
                 <div className="page-content">
-                    <h2>The idea</h2>
-                    <p>The main idea of this module is to create an isomorphic log sending tool, that can be extended by
-                        internal/external plugins.
-                        It has bundles for browser and nodejs environments.
-                        It can be extended with custom strategy ("when to send logs") and service ("where to send
-                        logs"). See usage examples.
-                        It does not restrict you with conventions, for example, existence of "logSeverity", "ErrorId" or
-                        "message" fields in log.</p>
+                    <h2>Strategies</h2>
+                    <p>Strategies are components that "know" when is it right time to send logs.
+                        There are next strategies available:</p>
+                    <ul>
+                        <li>InstantStrategy</li>
+                        <li>OnBundleSizeStrategy</li>
+                        <li>OnIntervalStrategy</li>
+                        <li>OnRequestStrategy</li>
+                    </ul>
+
+                    <h3>InstantStrategy</h3>
+                    <p>Does not require parameters. It just sends the log as soon as it appears in logger.</p>
+                    <pre className="code-snippet" dangerouslySetInnerHTML={{__html: html1}}/>
+
+                    <h3>OnBundleSizeStrategy</h3>
+                    <p>Can accept a configuration object with an optional "maxBundle" value, which determines what is a
+                        maximal amount of logs it should collect before sending to the service. Default number is
+                        100.</p>
+                    <pre className="code-snippet" dangerouslySetInnerHTML={{__html: html2}}/>
+
+                    <h3>OnIntervalStrategy</h3>
+                    <p>Can accept a configuration object with an optional "interval" value, which determines what is a
+                        time interval for collecting logs before sending them to the service. Default number is
+                        15000.</p>
+                    <pre className="code-snippet" dangerouslySetInnerHTML={{__html: html3}}/>
+
+                    <h3>OnRequestStrategy</h3>
+                    <p>This strategy does not do anything :) . It will send logs only after manual call
+                        to <i>logger.sendAllLogs();</i> method.</p>
+                    <pre className="code-snippet" dangerouslySetInnerHTML={{__html: html4}}/>
+
+                    <h3>Custom implementation of strategy</h3>
+                    <i>@TODO</i>
                 </div>
             </article>
         );
     }
 }
+
+const snippet1 = `
+const {strategy} = require("advanced-logger");
+const strategy = new strategy.InstantStrategy();`;
+
+const snippet2 = `
+const {strategy} = require("advanced-logger");
+const config = {
+    maxBundle: 123
+};
+const strategy = new strategy.OnBundleSizeStrategy(config);`;
+
+const snippet3 = `
+const {strategy} = require("advanced-logger");
+    const config = {
+    interval: 10000
+};
+const strategy = new strategy.OnIntervalStrategy(config);`;
+
+const snippet4 = `
+const {strategy} = require("advanced-logger");
+
+const strategy = new strategy.OnRequestStrategy();
+
+//"logger" is an instance of AdvancedLogger
+logger.sendAllLogs();`;
+
+const html1 = Prism.highlight(snippet1, Prism.languages.javascript);
+const html2 = Prism.highlight(snippet2, Prism.languages.javascript);
+const html3 = Prism.highlight(snippet3, Prism.languages.javascript);
+const html4 = Prism.highlight(snippet4, Prism.languages.javascript);

@@ -35,6 +35,12 @@ export default class About extends React.Component {
                         </li>
                         <li>It should support custom format for logs soon (it is only json form currently)</li>
                     </ul>
+                    <h2>Runtime environment support</h2>
+                    <p>Builds are generated as ES5 bundles for nodejs and browser environments.
+                        <br/>NodeJS - tested on latest lts
+                        <br/>Browser - all latest browsers + IE10, IE11 (fetch polyfill)</p>
+                    <h2>Usage</h2>
+                    Please, find working examples for browser and nodejs environments in <i>/example</i> folder.
                 </div>
             </article>
         );
