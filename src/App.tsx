@@ -3,21 +3,16 @@ import {MouseEvent} from "react";
 import {HashRouter, Link, Route} from "react-router-dom";
 import loadable from 'react-loadable';
 import './../styles/App.scss';
-import "./../styles/prism.scss";
-import "./../styles/loader.scss";
 import About from "./page/About";
 import Footer from "./Footer";
 import Overlay from "./component/Overlay";
+import Loader from "./component/Loader";
 
 class App extends React.Component {
     constructor(props: any) {
         super(props);
 
         this.onAPIBtnClick = this.onAPIBtnClick.bind(this);
-    }
-
-    private loading () {
-        return <div className="loading-overlay"><div className="loader"/></div>;
     }
 
     public render() {
@@ -71,37 +66,37 @@ class App extends React.Component {
                         <Route path="/api/start"
                                component={loadable({
                                    loader: () => import("./page/Start"),
-                                   loading: this.loading,
+                                   loading: Loader,
                                })}/>
                         <Route path="/api/strategy"
                                component={loadable({
                                    loader: () => import("./page/Strategy"),
-                                   loading: this.loading,
+                                   loading: Loader,
                                })}/>
                         <Route path="/api/service"
                                component={loadable({
                                    loader: () => import("./page/Service"),
-                                   loading: this.loading,
+                                   loading: Loader,
                                })}/>
                         <Route path="/api/grouping"
                                component={loadable({
                                    loader: () => import("./page/Grouping"),
-                                   loading: this.loading,
+                                   loading: Loader,
                                })}/>
                         <Route path="/releases/"
                                component={loadable({
                                    loader: () => import("./page/Releases"),
-                                   loading: this.loading,
+                                   loading: Loader,
                                })}/>
                         <Route path="/contacts/"
                                component={loadable({
                                    loader: () => import("./page/Contacts"),
-                                   loading: this.loading,
+                                   loading: Loader,
                                })}/>
                         <Route path="/devpage/"
                                component={loadable({
                                    loader: () => import("./page/DevPage"),
-                                   loading: this.loading,
+                                   loading: Loader,
                                })}/>
                     </div>
 
@@ -111,7 +106,7 @@ class App extends React.Component {
         );
     }
 
-    private toggleSidebar() {
+    private toggleSidebar(): void {
         const mySidebar = document.getElementById("mySidebar");
         const overlayBg = document.getElementById("myOverlay");
 
@@ -126,7 +121,7 @@ class App extends React.Component {
         }
     }
 
-    private closeSidebar(e: MouseEvent) {
+    private closeSidebar(e: MouseEvent): void {
         const targetEl = (e.target as HTMLElement);
 
         if (!targetEl.classList.contains("api-nav-button")) {
@@ -140,7 +135,7 @@ class App extends React.Component {
         }
     }
 
-    private onAPIBtnClick(e: MouseEvent){
+    private onAPIBtnClick(e: MouseEvent): void {
         const targetEl = (e.target as HTMLElement);
 
         if (targetEl.classList.contains("api-nav-button") && targetEl.parentElement) {
@@ -151,7 +146,7 @@ class App extends React.Component {
         }
     }
 
-    private toggleAPIDropDown(el: Element){
+    private toggleAPIDropDown(el: Element): void {
         if (el) {
             const cls = "w3-show";
             const clsList = el.classList;
