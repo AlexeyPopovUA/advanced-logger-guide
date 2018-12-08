@@ -2,7 +2,7 @@ import * as React from 'react';
 import {MouseEvent} from "react";
 import {HashRouter, Link, Route} from "react-router-dom";
 import './../styles/App.scss';
-// import "prismjs/themes/prism.css"
+import "./../styles/prism.scss";
 import About from "./page/About";
 import Releases from "./page/Releases";
 import Contacts from "./page/Contacts";
