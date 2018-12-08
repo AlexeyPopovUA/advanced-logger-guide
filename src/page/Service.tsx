@@ -23,7 +23,8 @@ export default class Service extends React.Component {
     }
 }
 
-const code1 = `//Configuration for communication with Sumologic. Url should be taken from the logger's source category configuration page.
+const code1 = `
+//Configuration for communication with Sumologic. Url should be taken from the logger's source category configuration page.
 const serviceConfig = {
     url: "https://www.google.nl",
     sourceName: "advancedLoggerTest",
@@ -48,34 +49,33 @@ const defaultLogConfig = {
 
 //general config
 const config = {serviceConfig, defaultLogConfig};
-
 const service = new service.SumologicService(config);`;
 
-const code2 = `//Configuration for communication with Sumologic. Url should be taken from the logger's source category configuration page.
-    const serviceConfig = {
-        // this should be the url for <strong>bulk<strong> log sending
-        "url": "https://{loggly_url}/bulk/{token}>/tag/bulk/",
-        method: "POST"
-    };
+const code2 = `
+//Configuration for communication with Sumologic. Url should be taken from the logger's source category configuration page.
+const serviceConfig = {
+    // this should be the url for <strong>bulk<strong> log sending
+    "url": "https://{loggly_url}/bulk/{token}>/tag/bulk/",
+    method: "POST"
+};
 
-    //Default log configuration.
-    //It is used like a template with default values for each new log.
-    //Can be of any structure. It will be shallowly copied during creation of a new log record.
-    const defaultLogConfig = {
-        UserAgent: window.userAgent,
-        BuildVersion: 123,
-        Platform: "browser",
-        Severity: "DEBUG",
-        Data: "",
-        Timestamp: "",
-        Message: "",
-        Category: ""
-    };
+//Default log configuration.
+//It is used like a template with default values for each new log.
+//Can be of any structure. It will be shallowly copied during creation of a new log record.
+const defaultLogConfig = {
+    UserAgent: window.userAgent,
+    BuildVersion: 123,
+    Platform: "browser",
+    Severity: "DEBUG",
+    Data: "",
+    Timestamp: "",
+    Message: "",
+    Category: ""
+};
 
-    //general config
-    const config = {serviceConfig, defaultLogConfig};
-
-    const service = new service.LogglyService(config);`;
+//general config
+const config = {serviceConfig, defaultLogConfig};
+const service = new service.LogglyService(config);`;
 
 const html1 = Prism.highlight(code1, Prism.languages.javascript);
 const html2 = Prism.highlight(code2, Prism.languages.javascript);
