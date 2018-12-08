@@ -17,7 +17,7 @@ class App extends React.Component {
     }
 
     private loading () {
-        return <div className="w3-display-container"><div className="loader w3-padding w3-display-topleft"/></div>;
+        return <div className="loading-overlay"><div className="loader"/></div>;
     }
 
     public render() {
@@ -66,7 +66,7 @@ class App extends React.Component {
 
                     <Overlay handleClick={this.closeSidebar}/>
 
-                    <div className="w3-main w3-padding-32 main-container w3-container">
+                    <div className="main-container w3-main w3-container">
                         <Route path="/" exact={true} component={About}/>
                         <Route path="/api/start"
                                component={loadable({
@@ -96,6 +96,11 @@ class App extends React.Component {
                         <Route path="/contacts/"
                                component={loadable({
                                    loader: () => import("./page/Contacts"),
+                                   loading: this.loading,
+                               })}/>
+                        <Route path="/devpage/"
+                               component={loadable({
+                                   loader: () => import("./page/DevPage"),
                                    loading: this.loading,
                                })}/>
                     </div>
