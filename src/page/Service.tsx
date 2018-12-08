@@ -54,7 +54,7 @@ const service = new service.SumologicService(config);`;
 const code2 = `//Configuration for communication with Sumologic. Url should be taken from the logger's source category configuration page.
     const serviceConfig = {
         // this should be the url for <strong>bulk<strong> log sending
-        "url": "https://logs-01.loggly.com/bulk/{token}>/tag/bulk/",
+        "url": "https://{loggly_url}/bulk/{token}>/tag/bulk/",
         method: "POST"
     };
 
