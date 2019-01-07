@@ -16,8 +16,7 @@
     "importHelpers": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
-    "esModuleInterop": true
+    "noUnusedLocals": true
   },
   "exclude": [
     "node_modules",

@@ -1,14 +1,14 @@
-import * as React from 'react';
+import * as React from "react";
 import {MouseEvent} from "react";
 import {HashRouter, Link, Route} from "react-router-dom";
-import loadable from 'react-loadable';
+import * as loadable from 'react-loadable';
 import './../styles/App.scss';
 import About from "./page/About";
 import Footer from "./Footer";
 import Overlay from "./component/Overlay";
 import Loader from "./component/Loader";
 
-class App extends React.Component {
+export default class App extends React.Component {
     constructor(props: any) {
         super(props);
 
@@ -154,5 +154,3 @@ class App extends React.Component {
         }
     }
 }
-
-export default App;

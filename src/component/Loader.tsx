@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./../../styles/loader.scss";
 
-const Loader = (props: any) => {
+const Loader = () => {
     return <div className="loading-overlay"><div className="loader"/></div>;
 };
 

@@ -34,7 +34,7 @@ module.exports = env => {
             path: path.resolve(__dirname, destinationPath)
         },
         resolve: {
-            extensions: [".ts", ".tsx", ".js", ".scss", ".css"]
+            extensions: [".js", ".mjs", ".ts", ".tsx", ".js", ".scss", ".css"]
         },
         plugins: [
             new CleanWebpackPlugin([destinationPath]),

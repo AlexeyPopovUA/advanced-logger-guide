@@ -1,5 +1,5 @@
 import * as React from "react";
-import marked from "marked";
+import * as marked from "marked";
 
 export default class Releases extends React.Component<any, IState> {
     constructor(props: any) {
@@ -44,7 +44,7 @@ export default class Releases extends React.Component<any, IState> {
     private static configureMDParser(): void {
         const renderer = new marked.Renderer();
 
-        renderer.heading = (text, level) => {
+        renderer.heading = (text: string, level: number) => {
             level++;
             return text !== "Change Log" ? `<h${level}>${text}</h${level}>` : "";
         };
