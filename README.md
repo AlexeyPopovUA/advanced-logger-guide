@@ -1,8 +1,10 @@
 # advanced-logger-guide
 
 [![Build Status](https://travis-ci.com/AlexeyPopovUA/advanced-logger-guide.svg?branch=master)](https://travis-ci.com/AlexeyPopovUA/advanced-logger-guide)
-[![Greenkeeper badge](https://badges.greenkeeper.io/AlexeyPopovUA/advanced-logger-guide.svg)](https://greenkeeper.io/)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 Guide with examples for advanced logger module
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+[Website Link](https://alexeypopovua.github.io/advanced-logger-guide/#/)
+
+(Under construction)
