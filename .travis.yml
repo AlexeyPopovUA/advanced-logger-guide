@@ -10,6 +10,7 @@ install:
 
 script:
   - npm run build-release
+  - npm run bundlesize
 
 deploy:
   provider: pages

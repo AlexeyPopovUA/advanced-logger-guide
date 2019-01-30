@@ -20,7 +20,8 @@
     "build-prod": "webpack --config webpack.config.js --env.prod",
     "build-dev": "webpack --config webpack.config.js  --env.dev",
     "dev": "webpack-dev-server --config webpack.config.js  --env.dev --env.watch",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "bundlesize": "bundlesize"
   },
   "devDependencies": {
     "@types/jest": "23.3.13",
@@ -32,6 +33,7 @@
     "@types/react-loadable": "5.4.3",
     "@types/react-router-dom": "4.3.1",
     "awesome-typescript-loader": "5.2.1",
+    "bundlesize": "^0.17.1",
     "clean-webpack-plugin": "1.0.0",
     "copy-webpack-plugin": "4.6.0",
     "css-loader": "2.1.0",
@@ -80,5 +82,11 @@
       "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/styleMock.ts",
       "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.ts"
     }
-  }
+  },
+  "bundlesize": [
+    {
+      "path": "./dist/*.js",
+      "maxSize": "100 kB"
+    }
+  ]
 }
