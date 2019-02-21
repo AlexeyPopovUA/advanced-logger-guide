@@ -47,7 +47,7 @@ export default class App extends React.Component {
                         <h4 className="w3-bar-item"><b>Menu</b></h4>
                         <Link className="w3-bar-item w3-button w3-hover-black" to="/">About</Link>
                         <div className="w3-dropdown-click w3-mobile">
-                            <button onClick={this.onAPIBtnClick} className="w3-bar-item w3-button w3-hover-black api-nav-button">API</button>
+                            <button onClick={this.onAPIBtnClick} className="w3-bar-item w3-button w3-hover-black api-nav-button"><strong>&gt;</strong>&nbsp;API</button>
                             <div className="w3-dropdown-content w3-bar-block w3-border">
                                 <Link className="w3-bar-item w3-button w3-hover-black" to="/api/start">Getting started</Link>
                                 <Link className="w3-bar-item w3-button w3-hover-black" to="/api/strategy">Strategy</Link>
