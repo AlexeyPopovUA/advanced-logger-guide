@@ -58,22 +58,17 @@ module.exports = env => {
                         handler: 'cacheFirst'
                     },
                     {
-                        urlPattern: new RegExp('.+CHANGELOG\.md'),
+                        urlPattern: new RegExp('.+raw\.githubusercontent\.com.+CHANGELOG\.md'),
                         handler: 'cacheFirst'
                     },
                     {
                         urlPattern: new RegExp('.+manifest\.json'),
                         handler: 'cacheFirst'
-                    },
-                    {
-                        urlPattern: new RegExp('.+\.(js|css|html|png|json)'),
-                        handler: 'networkFirst'
                     }
                 ]
             }),
             new CopyWebpackPlugin([
                 {from: './resources/manifest.json', to: "./", flatten: true},
-                {from: './resources/CHANGELOG.md', to: "./", flatten: true},
                 {from: './images', to: "./"},
             ]),
             //new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
