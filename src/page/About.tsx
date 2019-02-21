@@ -7,13 +7,11 @@ export default class About extends React.Component {
                 <h1 className="w3-text-teal">About</h1>
                 <div className="page-content">
                     <h2>The idea</h2>
-                    <p>The main idea of this module is to create an isomorphic log sending tool, that can be extended by
-                        internal/external plugins.
-                        It has bundles for browser and nodejs environments.
-                        It can be extended with custom strategy ("when to send logs") and service ("where to send
-                        logs"). See usage examples.
-                        It does not restrict you with conventions, for example, existence of "logSeverity", "ErrorId" or
-                        "message" fields in log.</p>
+                    <p>The main idea of this module is to create an isomorphic log sending tool, that can be extended by internal/external plugins.<br/>
+                        It has bundles for browser and nodejs environments.<br/>
+                        It can be extended with custom strategy ("when to send logs") and service ("where to send logs"). See usage examples.<br/>
+                        It does not restrict you with conventions, for example, existence of "logSeverity", "ErrorId" or "message" fields in log.<br/>
+                        It supports any format of logs via custom serializer.</p>
                     <h2>Features</h2>
                     <ul>
                         <li>It works in browsers and nodejs</li>
@@ -26,14 +24,10 @@ export default class About extends React.Component {
                             <li>on bundle size (for example, sends bundles of 100 logs)</li>
                             <li>instant (received 1 log -> sent 1 log)</li>
                         </ul>
-                        <li>It is able to group duplicated logs in certain time interval (for rapid fire of the same
-                            logs)
-                        </li>
+                        <li>It is able to group duplicated logs in certain time interval (for rapid fire of the same logs)</li>
                         <li>It is not afraid of circular links in log objects</li>
-                        <li>It should support different remote logger endpoints soon (only SumoLogic and Loggly so
-                            far. Who is the next? ᕙ(ಠ.ಠ)ᕗ )
-                        </li>
-                        <li>It should support custom format for logs soon (it is only json form currently)</li>
+                        <li>It supports custom format for logs (custom serializer)</li>
+                        <li>It supports different remote logger endpoints (SumoLogic, Loggly and Elasticsearch). Who is the next? ᕙ(ಠ.ಠ)ᕗ</li>
                     </ul>
                     <h2>Runtime environment support</h2>
                     <p>Builds are generated as ES5 bundles for nodejs and browser environments.
