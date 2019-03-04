@@ -1,7 +1,8 @@
-import * as React from "react";
+import React from "react";
 import {MouseEvent} from "react";
 import {HashRouter, Link, Route} from "react-router-dom";
-import * as loadable from 'react-loadable';
+import loadable from 'react-loadable';
+
 import './../styles/App.scss';
 import About from "./page/About";
 import Footer from "./Footer";
