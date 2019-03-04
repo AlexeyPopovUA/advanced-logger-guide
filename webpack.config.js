@@ -1,6 +1,8 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {GenerateSW} = require('workbox-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -36,8 +38,22 @@ module.exports = env => {
         resolve: {
             extensions: [".js", ".mjs", ".ts", ".tsx", ".js", ".scss", ".css"]
         },
+        optimization: {
+            minimizer: [
+                new UglifyJsPlugin({
+                    cache: true,
+                    parallel: true,
+                    sourceMap: true // set to true if you want JS source maps
+                }),
+                new OptimizeCSSAssetsPlugin({})
+            ]
+        },
         plugins: [
-            new CleanWebpackPlugin([destinationPath]),
+            new CleanWebpackPlugin({
+                cleanOnceBeforeBuildPatterns: ["**/*", "../coverage", "../cache-jest"],
+                dangerouslyAllowCleanPatternsOutsideProject: true,
+                dry: false
+            }),
             new MiniCssExtractPlugin({
                 filename: '[name].css'
             }),
@@ -55,15 +71,15 @@ module.exports = env => {
                 runtimeCaching: [
                     {
                         urlPattern: new RegExp('.+w3schools.+\.css'),
-                        handler: 'cacheFirst'
+                        handler: 'CacheFirst'
                     },
                     {
                         urlPattern: new RegExp('.+raw\.githubusercontent\.com.+CHANGELOG\.md'),
-                        handler: 'cacheFirst'
+                        handler: 'CacheFirst'
                     },
                     {
                         urlPattern: new RegExp('.+manifest\.json'),
-                        handler: 'cacheFirst'
+                        handler: 'CacheFirst'
                     }
                 ]
             }),
@@ -98,7 +114,7 @@ module.exports = env => {
                 },
                 {
                     loader: "source-map-loader",
-                    test: /\.tsx$/,
+                    test: /\.tsx?$/,
                     enforce: "pre"
                 }
             ]

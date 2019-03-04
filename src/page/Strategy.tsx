@@ -1,5 +1,5 @@
-import * as React from "react";
-import * as Prism from "prismjs";
+import React from "react";
+import {highlight, languages} from "prismjs";
 
 export default class Strategy extends React.Component {
     public render() {
@@ -72,7 +72,7 @@ const strategy = new strategy.OnRequestStrategy();
 //"logger" is an instance of AdvancedLogger
 logger.sendAllLogs();`;
 
-const html1 = Prism.highlight(snippet1, Prism.languages.javascript);
-const html2 = Prism.highlight(snippet2, Prism.languages.javascript);
-const html3 = Prism.highlight(snippet3, Prism.languages.javascript);
-const html4 = Prism.highlight(snippet4, Prism.languages.javascript);
+const html1 = highlight(snippet1, languages.javascript);
+const html2 = highlight(snippet2, languages.javascript);
+const html3 = highlight(snippet3, languages.javascript);
+const html4 = highlight(snippet4, languages.javascript);

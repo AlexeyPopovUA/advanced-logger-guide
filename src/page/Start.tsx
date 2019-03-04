@@ -1,5 +1,5 @@
-import * as React from "react";
-import * as Prism from "prismjs";
+import React from "react";
+import {highlight, languages} from "prismjs";
 
 export default class Start extends React.Component {
     public render() {
@@ -62,7 +62,7 @@ logger.log({test: "instant log u1"});
 logger.log({test: "instant log u2"});
 logger.log({test: "instant log u3"});`;
 
-const html1 = Prism.highlight(code1, Prism.languages.html);
-const html2 = Prism.highlight(code2, Prism.languages.html);
-const html3 = Prism.highlight(code3, Prism.languages.javascript);
-const html4 = Prism.highlight(code4, Prism.languages.javascript);
+const html1 = highlight(code1, languages.html);
+const html2 = highlight(code2, languages.html);
+const html3 = highlight(code3, languages.javascript);
+const html4 = highlight(code4, languages.javascript);
