@@ -15,6 +15,15 @@ const Releases = React.lazy(() => import("./page/Releases"));
 const Contacts = React.lazy(() => import("./page/Contacts"));
 const DevPage = React.lazy(() => import("./page/DevPage"));
 
+const ApiNavigationLinks = () => (
+    <>
+        <Link className="w3-bar-item w3-button w3-hover-black" to="/api/start">Getting started</Link>
+        <Link className="w3-bar-item w3-button w3-hover-black" to="/api/strategy">Strategy</Link>
+        <Link className="w3-bar-item w3-button w3-hover-black" to="/api/service">Service</Link>
+        <Link className="w3-bar-item w3-button w3-hover-black" to="/api/grouping">Grouping</Link>
+    </>
+);
+
 export default class App extends React.Component {
     constructor(props: any) {
         super(props);
@@ -34,10 +43,7 @@ export default class App extends React.Component {
                             <div className="w3-dropdown-hover">
                                 <button className="w3-button w3-hide-small w3-hover-white">API <i className="fa fa-caret-down"/></button>
                                 <div className="w3-dropdown-content w3-bar-block w3-dark-grey">
-                                    <Link className="w3-bar-item w3-button w3-hover-black" to="/api/start">Getting started</Link>
-                                    <Link className="w3-bar-item w3-button w3-hover-black" to="/api/strategy">Strategy</Link>
-                                    <Link className="w3-bar-item w3-button w3-hover-black" to="/api/service">Service</Link>
-                                    <Link className="w3-bar-item w3-button w3-hover-black" to="/api/grouping">Grouping</Link>
+                                    <ApiNavigationLinks/>
                                 </div>
                             </div>
                             <Link className="w3-bar-item w3-button w3-hide-small w3-hover-white" to="/releases">Releases</Link>
@@ -56,10 +62,7 @@ export default class App extends React.Component {
                         <div className="w3-dropdown-click w3-mobile">
                             <button onClick={this.onAPIBtnClick} className="w3-bar-item w3-button w3-hover-black api-nav-button"><strong>&gt;</strong>&nbsp;API</button>
                             <div className="w3-dropdown-content w3-bar-block w3-border">
-                                <Link className="w3-bar-item w3-button w3-hover-black" to="/api/start">Getting started</Link>
-                                <Link className="w3-bar-item w3-button w3-hover-black" to="/api/strategy">Strategy</Link>
-                                <Link className="w3-bar-item w3-button w3-hover-black" to="/api/service">Service</Link>
-                                <Link className="w3-bar-item w3-button w3-hover-black" to="/api/grouping">Grouping</Link>
+                                <ApiNavigationLinks/>
                             </div>
                         </div>
                         <Link className="w3-bar-item w3-button w3-hover-black" to="/releases">Releases</Link>
