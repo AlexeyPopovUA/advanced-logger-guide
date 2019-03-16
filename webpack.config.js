@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
@@ -33,6 +34,7 @@ module.exports = env => {
         },
         output: {
             filename: '[name].js',
+            chunkFilename: '[name].bundle.js',
             path: path.resolve(__dirname, destinationPath)
         },
         resolve: {
@@ -53,6 +55,9 @@ module.exports = env => {
                 cleanOnceBeforeBuildPatterns: ["**/*", "../coverage", "../cache-jest"],
                 dangerouslyAllowCleanPatternsOutsideProject: true,
                 dry: false
+            }),
+            new webpack.DefinePlugin({
+                'DEBUG': mode === 'development'
             }),
             new MiniCssExtractPlugin({
                 filename: '[name].css'
@@ -91,9 +96,16 @@ module.exports = env => {
         ],
         module: {
             rules: [
-                {test: /\.tsx?$/, loader: "awesome-typescript-loader"},
                 {
-                    test: /\.(png|svg|jpg|gif)$/,
+                    test: /\.(js|ts|tsx|)$/,
+                    include: path.resolve('./src'),
+                    exclude: /(node_modules)/,
+                    use: [{
+                        loader: 'babel-loader'
+                    }]
+                },
+                {
+                    test: /\.(png|svg|jpg|gif|woff(2)?|ttf|eot)$/,
                     use: [
                         'file-loader'
                     ]
@@ -101,7 +113,6 @@ module.exports = env => {
                 {
                     test: /\.scss$/,
                     use: [
-                        {loader: 'style-loader'},
                         {loader: MiniCssExtractPlugin.loader},
                         {loader: 'css-loader'},
                         {
@@ -111,11 +122,6 @@ module.exports = env => {
                             }
                         }
                     ]
-                },
-                {
-                    loader: "source-map-loader",
-                    test: /\.tsx?$/,
-                    enforce: "pre"
                 }
             ]
         }
