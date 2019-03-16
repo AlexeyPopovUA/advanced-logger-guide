@@ -1,29 +1,29 @@
 import React from "react";
 import {highlight, languages} from "prismjs";
 
-export default class Service extends React.Component {
-    public render() {
-        return (
-            <article className="page-content page-service">
-                <h1 className="w3-text-teal">Services</h1>
-                <div className="page-content">
-                    <h2>Sumologic (see <a href="https://www.sumologic.com">Sumologic</a> )</h2>
-                    <pre className="code-snippet" dangerouslySetInnerHTML={{__html: html1}}/>
+export default () => (
+    <article className="page-content page-service">
+        <h1 className="w3-text-teal">Services</h1>
+        <div className="page-content">
+            <h2>Sumologic (see <a href="https://www.sumologic.com">Sumologic</a> )</h2>
+            <pre className="code-snippet" dangerouslySetInnerHTML={{__html: html1}}/>
 
-                    <h2>Loggly (see <a href="https://www.loggly.com">Loggly</a>)</h2>
-                    <pre className="code-snippet" dangerouslySetInnerHTML={{__html: html2}}/>
+            <h2>Loggly (see <a href="https://www.loggly.com">Loggly</a>)</h2>
+            <pre className="code-snippet" dangerouslySetInnerHTML={{__html: html2}}/>
 
-                    <h2>Elastic Search Service (see <a href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-gsg-upload-data.html">Elastic Search at AWS</a>)</h2>
-                    <p>Logger supports sending data to Elasticsearch service endpoint. It was tested on AWS-based instance of Elasticsearch and Kibana. Ideally, it should work also on instance of any other cloud provider.</p>
-                    <pre className="code-snippet" dangerouslySetInnerHTML={{__html: html3}}/>
+            <h2>Elastic Search Service (see <a
+                href="https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-gsg-upload-data.html">Elastic
+                Search at AWS</a>)</h2>
+            <p>Logger supports sending data to Elasticsearch service endpoint. It was tested on AWS-based instance
+                of Elasticsearch and Kibana. Ideally, it should work also on instance of any other cloud
+                provider.</p>
+            <pre className="code-snippet" dangerouslySetInnerHTML={{__html: html3}}/>
 
-                    <h2>Custom implementation of service</h2>
-                    <p>@TODO</p>
-                </div>
-            </article>
-        );
-    }
-}
+            <h2>Custom implementation of service</h2>
+            <p>@TODO</p>
+        </div>
+    </article>
+);
 
 const code1 = `
 //Configuration for communication with Sumologic. Url should be taken from the logger's source category configuration page.

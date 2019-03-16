@@ -1,28 +1,24 @@
 import React from "react";
 import {highlight, languages} from "prismjs";
 
-export default class Start extends React.Component {
-    public render() {
-        return (
-            <article className="page-content page-start">
-                <h1 className="w3-text-teal">Getting started</h1>
-                <div className="page-content">
-                    <h2>Add to the project</h2>
-                    <p>In browser:</p>
-                    <pre className="code-snippet" dangerouslySetInnerHTML={{__html: html1}}/>
-                    <p>or</p>
-                    <pre className="code-snippet" dangerouslySetInnerHTML={{__html: html2}}/>
-                    <p>In nodejs:</p>
-                    <pre className="code-snippet" dangerouslySetInnerHTML={{__html: html3}}/>
+export default () => (
+    <article className="page-content page-start">
+        <h1 className="w3-text-teal">Getting started</h1>
+        <div className="page-content">
+            <h2>Add to the project</h2>
+            <p>In browser:</p>
+            <pre className="code-snippet" dangerouslySetInnerHTML={{__html: html1}}/>
+            <p>or</p>
+            <pre className="code-snippet" dangerouslySetInnerHTML={{__html: html2}}/>
+            <p>In nodejs:</p>
+            <pre className="code-snippet" dangerouslySetInnerHTML={{__html: html3}}/>
 
-                    <h2>Simplest usage</h2>
-                    <p>Lets initiate a logger that sends all logs instantly to Sumologic service.</p>
-                    <pre className="code-snippet" dangerouslySetInnerHTML={{__html: html4}}/>
-                </div>
-            </article>
-        );
-    }
-}
+            <h2>Simplest usage</h2>
+            <p>Lets initiate a logger that sends all logs instantly to Sumologic service.</p>
+            <pre className="code-snippet" dangerouslySetInnerHTML={{__html: html4}}/>
+        </div>
+    </article>
+);
 
 const code1 = `<script src="./node-modules/advance-logger/dist/browser/advanced-logger.browser.min.js"> </script>`;
 const code2 = `<script src="https://cdn.jsdelivr.net/npm/advanced-logger@latest/dist/browser/advanced-logger.browser.min.js"> </script>
