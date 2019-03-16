@@ -1,13 +1,19 @@
-import React from "react";
-import {MouseEvent} from "react";
+import React, {MouseEvent, Suspense} from "react";
 import {HashRouter, Link, Route} from "react-router-dom";
-import loadable from 'react-loadable';
 
 import './../styles/App.scss';
-import About from "./page/About";
 import Footer from "./Footer";
 import Overlay from "./component/Overlay";
 import Loader from "./component/Loader";
+
+const About = React.lazy(() => import("./page/About"));
+const Start = React.lazy(() => import("./page/Start"));
+const Strategy = React.lazy(() => import("./page/Strategy"));
+const Service = React.lazy(() => import("./page/Service"));
+const Grouping = React.lazy(() => import("./page/Grouping"));
+const Releases = React.lazy(() => import("./page/Releases"));
+const Contacts = React.lazy(() => import("./page/Contacts"));
+const DevPage = React.lazy(() => import("./page/DevPage"));
 
 export default class App extends React.Component {
     constructor(props: any) {
@@ -63,42 +69,16 @@ export default class App extends React.Component {
                     <Overlay handleClick={this.closeSidebar}/>
 
                     <div className="main-container w3-main w3-container">
-                        <Route path="/" exact={true} component={About}/>
-                        <Route path="/api/start"
-                               component={loadable({
-                                   loader: () => import("./page/Start"),
-                                   loading: Loader,
-                               })}/>
-                        <Route path="/api/strategy"
-                               component={loadable({
-                                   loader: () => import("./page/Strategy"),
-                                   loading: Loader,
-                               })}/>
-                        <Route path="/api/service"
-                               component={loadable({
-                                   loader: () => import("./page/Service"),
-                                   loading: Loader,
-                               })}/>
-                        <Route path="/api/grouping"
-                               component={loadable({
-                                   loader: () => import("./page/Grouping"),
-                                   loading: Loader,
-                               })}/>
-                        <Route path="/releases/"
-                               component={loadable({
-                                   loader: () => import("./page/Releases"),
-                                   loading: Loader,
-                               })}/>
-                        <Route path="/contacts/"
-                               component={loadable({
-                                   loader: () => import("./page/Contacts"),
-                                   loading: Loader,
-                               })}/>
-                        <Route path="/devpage/"
-                               component={loadable({
-                                   loader: () => import("./page/DevPage"),
-                                   loading: Loader,
-                               })}/>
+                        <Suspense fallback={<Loader/>}>
+                            <Route path="/" exact={true} component={About}/>
+                            <Route path="/api/start" component={Start}/>
+                            <Route path="/api/strategy" component={Strategy}/>
+                            <Route path="/api/service" component={Service}/>
+                            <Route path="/api/grouping" component={Grouping}/>
+                            <Route path="/releases/" component={Releases}/>
+                            <Route path="/contacts/" component={Contacts}/>
+                            <Route path="/devpage/" component={DevPage}/>
+                        </Suspense>
                     </div>
 
                     <Footer/>
