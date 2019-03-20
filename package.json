@@ -62,7 +62,7 @@
     "standard-version": "5.0.2",
     "style-loader": "0.23.1",
     "ts-jest": "24.0.0",
-    "typescript": "3.3.3333",
+    "typescript": "3.3.4000",
     "uglifyjs-webpack-plugin": "2.1.2",
     "webpack": "4.28.4",
     "webpack-cli": "3.3.0",
