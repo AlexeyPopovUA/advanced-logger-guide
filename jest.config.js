@@ -1,6 +1,10 @@
 module.exports = {
     preset: 'ts-jest',
     testEnvironment: 'jsdom',
+    "globals": {
+        "WATCH": true,
+        "DEBUG": true
+    },
     "transform": {
         ".(ts|tsx)": "ts-jest"
     },

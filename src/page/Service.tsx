@@ -108,6 +108,6 @@ const config = {serviceConfig, defaultLogConfig};
 
 const service = new service.ElasticsearchService(config);`;
 
-const html1 = highlight(code1, languages.javascript);
-const html2 = highlight(code2, languages.javascript);
-const html3 = highlight(code3, languages.javascript);
+const html1 = highlight(code1, languages.javascript, "js");
+const html2 = highlight(code2, languages.javascript, "js");
+const html3 = highlight(code3, languages.javascript, "js");
