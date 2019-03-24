@@ -14,14 +14,18 @@ export default class Releases extends React.Component<any, IState> {
     }
 
     public render() {
-        return (
-            <div className="page-content page-releases">
-                <h1 className="w3-text-teal">Releases</h1>
-                <div className="page-content">
-                    <p dangerouslySetInnerHTML={{__html: this.state.content}}/>
+        if (this.state.content) {
+            return (
+                <div className="page-content page-releases">
+                    <h1 className="w3-text-teal">Releases</h1>
+                    <div className="page-content">
+                        <p dangerouslySetInnerHTML={{__html: this.state.content}}/>
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        } else {
+            return "";
+        }
     }
 
     private static async fetchReleases() {

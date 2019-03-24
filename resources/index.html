@@ -2,20 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
+    <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
 
-    <link rel="manifest" href="manifest.json">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.index.css %>">
     <%= htmlWebpackPlugin.options.GOOGLE_ANALYTICS_SCRIPT %>
     <script>
         if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register('service-worker.js')
+            navigator.serviceWorker.register('<%= htmlWebpackPlugin.options.metadata.baseUrl %>service-worker.js')
                 .then(function (registration) {
                     console.log('Service Worker registration successful with scope: ', registration.scope)
                 })
@@ -32,7 +29,6 @@
             gtag('config', 'UA-127711409-2');
         }
     </script>
-    <script src="<%= htmlWebpackPlugin.files.chunks.index.entry %>"></script>
     <title>Advanced Logger Guide</title>
     <noscript>
         You need to enable JavaScript to run this app.

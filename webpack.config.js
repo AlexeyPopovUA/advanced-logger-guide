@@ -7,6 +7,10 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {GenerateSW} = require('workbox-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const PrerenderSPAPlugin = require('prerender-spa-plugin');
+const jsdomRenderer = require('@prerenderer/renderer-jsdom');
+
+const Renderer = jsdomRenderer;
 
 module.exports = env => {
     console.log(env);
@@ -14,6 +18,7 @@ module.exports = env => {
     const mode = env.prod ? 'production' : 'development';
     const destinationPath = 'dist';
     const watch = env.watch;
+    const baseUrl = '/';
 
     return {
         entry: {
@@ -29,13 +34,14 @@ module.exports = env => {
             ignored: /node_modules/
         },
         devServer: {
-            contentBase: './dist',
+            contentBase: path.join(__dirname, 'dist'),
             port: 9000
         },
         output: {
             filename: '[name].js',
             chunkFilename: '[name].bundle.js',
-            path: path.resolve(__dirname, destinationPath)
+            path: path.resolve(__dirname, destinationPath),
+            publicPath: baseUrl
         },
         resolve: {
             extensions: [".js", ".mjs", ".ts", ".tsx", ".js", ".scss", ".css"]
@@ -57,15 +63,24 @@ module.exports = env => {
                 dry: false
             }),
             new webpack.DefinePlugin({
-                'DEBUG': mode === 'development'
+                'DEBUG': mode === 'development',
+                'WATCH': watch
             }),
             new MiniCssExtractPlugin({
                 filename: '[name].css'
             }),
             new HtmlWebpackPlugin({
-                inject: false,
+                inject: true,
                 template: './resources/index.html',
                 filename: 'index.html',
+                favicon: './images/favicon.ico',
+                metadata: {
+                    baseUrl
+                },
+                meta: {
+                    viewport: "width=device-width, initial-scale=1, shrink-to-fit=no",
+                    "theme-color": "#000000"
+                },
                 PRODUCTION: !!env.release,
                 GOOGLE_ANALYTICS_SCRIPT: !!env.release ?
                     "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-127711409-2\"></script>" : ""
@@ -93,6 +108,25 @@ module.exports = env => {
                 {from: './images', to: "./"},
             ]),
             //new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+            ...(!watch ? [new PrerenderSPAPlugin({
+                staticDir: path.join(__dirname, 'dist'),
+                outputDir: path.join(__dirname, 'dist'),
+                routes: [
+                    '/',
+                    '/api/start',
+                    '/api/strategy',
+                    "/api/service",
+                    "/api/grouping",
+                    "/releases",
+                    "/contacts",
+                    "/devpage"
+                ],
+                renderer: new Renderer({
+                    maxConcurrentRoutes: 4,
+                    renderAfterElementExists: '.page-content',
+                    headless: true
+                })
+            })] : []),
         ],
         module: {
             rules: [

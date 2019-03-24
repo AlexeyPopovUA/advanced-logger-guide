@@ -58,7 +58,7 @@ logger.log({test: "instant log u1"});
 logger.log({test: "instant log u2"});
 logger.log({test: "instant log u3"});`;
 
-const html1 = highlight(code1, languages.html);
-const html2 = highlight(code2, languages.html);
-const html3 = highlight(code3, languages.javascript);
-const html4 = highlight(code4, languages.javascript);
+const html1 = highlight(code1, languages.html, "html");
+const html2 = highlight(code2, languages.html, "html");
+const html3 = highlight(code3, languages.javascript, "js");
+const html4 = highlight(code4, languages.javascript, "js");
