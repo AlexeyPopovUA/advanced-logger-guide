@@ -11,12 +11,3 @@ install:
 script:
   - npm run build-release
   - npm run bundlesize
-
-deploy:
-  provider: pages
-  local-dir: dist
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  keep-history: true
-  on:
-    branch: master
