@@ -11,7 +11,7 @@
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-router-dom": "5.0.0",
-    "whatwg-fetch": "^3.0.0"
+    "whatwg-fetch": "3.0.0"
   },
   "scripts": {
     "test": "jest",
@@ -34,7 +34,7 @@
     "@babel/preset-typescript": "7.3.3",
     "@commitlint/cli": "7.5.2",
     "@commitlint/config-conventional": "7.5.0",
-    "@prerenderer/renderer-jsdom": "^0.2.0",
+    "@prerenderer/renderer-jsdom": "0.2.0",
     "@types/jest": "24.0.11",
     "@types/marked": "0.6.5",
     "@types/node": "11.13.0",
@@ -59,7 +59,7 @@
     "mini-css-extract-plugin": "0.5.0",
     "node-sass": "4.11.0",
     "optimize-css-assets-webpack-plugin": "5.0.1",
-    "prerender-spa-plugin": "^3.4.0",
+    "prerender-spa-plugin": "3.4.0",
     "react-testing-library": "6.1.2",
     "sass-loader": "7.1.0",
     "source-map-loader": "0.2.4",
