@@ -7,7 +7,8 @@ frontend:
         - npm run test
     build:
       commands:
-        - npm run build-prod
+        - if [ "${AWS_BRANCH}" = "master" ]; then npm run build-release; fi
+        - if [ "${AWS_BRANCH}" != "master" ]; then npm run build-prod; fi
   artifacts:
     baseDirectory: ./dist
     files:
