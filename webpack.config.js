@@ -38,8 +38,8 @@ module.exports = env => {
             port: 9000
         },
         output: {
-            filename: '[name].js',
-            chunkFilename: '[name].bundle.js',
+            filename: '[name].[contenthash].js',
+            chunkFilename: '[name].[contenthash].bundle.js',
             path: path.resolve(__dirname, destinationPath),
             publicPath: baseUrl
         },
@@ -67,7 +67,7 @@ module.exports = env => {
                 'WATCH': watch
             }),
             new MiniCssExtractPlugin({
-                filename: '[name].css'
+                filename: '[name].[contenthash].css'
             }),
             new HtmlWebpackPlugin({
                 inject: true,
@@ -86,8 +86,13 @@ module.exports = env => {
                     "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-127711409-4\"></script>" : ""
             }),
             new GenerateSW({
-                clientsClaim: true,
-                skipWaiting: true,
+                ignoreURLParametersMatching: [/./],
+                offlineGoogleAnalytics: env.release === true,
+                cleanupOutdatedCaches: true,
+                include: [
+                    ...(env.watch === true ? [] : [/\.html$/]),
+                    /\.js$/, /\.css$/, /\.svg$/, /\.png$/, /\.ico/
+                ],
                 runtimeCaching: [
                     {
                         urlPattern: new RegExp('.+w3schools.+\.css'),
@@ -95,10 +100,6 @@ module.exports = env => {
                     },
                     {
                         urlPattern: new RegExp('.+raw\.githubusercontent\.com.+CHANGELOG\.md'),
-                        handler: 'CacheFirst'
-                    },
-                    {
-                        urlPattern: new RegExp('.+manifest\.json'),
                         handler: 'CacheFirst'
                     }
                 ]
@@ -145,7 +146,7 @@ module.exports = env => {
                     ]
                 },
                 {
-                    test: /\.scss$/,
+                    test: /\.(scss|css)$/,
                     use: [
                         {loader: MiniCssExtractPlugin.loader},
                         {loader: 'css-loader'},
