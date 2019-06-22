@@ -46,7 +46,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.2",
     "babel-loader": "8.0.6",
-    "babel-plugin-dynamic-import-node": "2.2.0",
+    "babel-plugin-dynamic-import-node": "2.3.0",
     "bundlesize": "0.17.2",
     "clean-webpack-plugin": "2.0.2",
     "copy-webpack-plugin": "5.0.3",
