@@ -6,7 +6,7 @@
   },
   "homepage": "https://alexeypopovua.github.io/advanced-logger-guide",
   "dependencies": {
-    "marked": "0.6.3",
+    "marked": "0.7.0",
     "prismjs": "latest",
     "react": "16.8.6",
     "react-dom": "16.8.6",
