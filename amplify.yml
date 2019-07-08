@@ -3,7 +3,7 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm install
+        - npm ci
         - npm run test
     build:
       commands:
@@ -14,5 +14,5 @@ frontend:
       - '**/*'
   cache:
     paths:
-      - node_modules/**/*
+      - ~/.npm
       - /opt/google/**/*
