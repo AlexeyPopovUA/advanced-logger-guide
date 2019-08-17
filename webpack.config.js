@@ -90,7 +90,7 @@ module.exports = env => {
                 offlineGoogleAnalytics: env.release === true,
                 cleanupOutdatedCaches: true,
                 include: [
-                    ...(env.watch === true ? [] : [/\.html$/]),
+                    /*...(env.watch === true ? [] : [/\.html$/]),*/
                     /\.js$/, /\.css$/, /\.svg$/, /\.png$/, /\.ico/
                 ],
                 runtimeCaching: [
