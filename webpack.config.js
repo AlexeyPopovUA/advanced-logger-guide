@@ -9,6 +9,10 @@ const {GenerateSW} = require('workbox-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const PrerenderSPAPlugin = require('prerender-spa-plugin');
 const jsdomRenderer = require('@prerenderer/renderer-jsdom');
+const marked = require("marked");
+const {highlight, languages} = require("prismjs");
+
+const markedRenderer = new marked.Renderer();
 
 const Renderer = jsdomRenderer;
 
@@ -154,6 +158,21 @@ module.exports = env => {
                             loader: 'sass-loader',
                             options: {
                                 includePaths: ["./styles"]
+                            }
+                        }
+                    ]
+                },
+                {
+                    test: /\.md$/,
+                    use: [
+                        {
+                            loader: "html-loader"
+                        },
+                        {
+                            loader: "markdown-loader",
+                            options: {
+                                renderer: markedRenderer,
+                                highlight: code => highlight(code, languages.javascript, "js")
                             }
                         }
                     ]
