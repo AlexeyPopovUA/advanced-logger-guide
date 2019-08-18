@@ -1,8 +1,12 @@
 import React from "react";
 import marked from "marked";
 
+interface IState {
+    content: string
+}
+
 export default class Releases extends React.Component<any, IState> {
-    constructor(props: any) {
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -10,7 +14,11 @@ export default class Releases extends React.Component<any, IState> {
         };
 
         Releases.configureMDParser();
-        Releases.fetchReleases().then(content => this.setState({content: marked(content)}));
+    }
+
+    async componentDidMount() {
+        const content = await Releases.fetchReleases();
+        this.setState({content: marked(content)});
     }
 
     public render() {
@@ -55,8 +63,4 @@ export default class Releases extends React.Component<any, IState> {
 
         marked.setOptions({renderer});
     }
-}
-
-interface IState {
-    content: string
 }
