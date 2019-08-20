@@ -35,7 +35,8 @@ module.exports = env => {
         },
         devServer: {
             contentBase: path.join(__dirname, 'dist'),
-            port: 9000
+            port: 9000,
+            historyApiFallback: true
         },
         output: {
             filename: '[name].[contenthash].js',
@@ -63,8 +64,7 @@ module.exports = env => {
                 dry: false
             }),
             new webpack.DefinePlugin({
-                'DEBUG': mode === 'development',
-                'WATCH': watch
+                'DEBUG': mode === 'development'
             }),
             new MiniCssExtractPlugin({
                 filename: '[name].[contenthash].css'

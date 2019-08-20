@@ -1,5 +1,5 @@
 import React, {MouseEvent, Suspense} from "react";
-import {BrowserRouter, HashRouter, Link, Route} from "react-router-dom";
+import {BrowserRouter, Link, Route} from "react-router-dom";
 
 import './../styles/App.scss';
 import Footer from "./Footer";
@@ -32,70 +32,60 @@ export default class App extends React.Component {
     }
 
     public render() {
-        const content = <>
-            <div className="w3-top">
-                <div className="w3-bar w3-theme w3-left-align w3-large">
-                    <a className="w3-hide-medium w3-hide-large w3-bar-item w3-button w3-right w3-hover-white w3-large w3-theme-l1"
-                       onClick={this.toggleSidebar}><i className="fa fa-bars"/></a>
-                    <Link className="w3-bar-item w3-button w3-hover-white w3-theme-l1" to="/">Advanced Logger</Link>
-                    <div className="w3-dropdown-hover">
-                        <button className="w3-button w3-hide-small w3-hover-white">API <i className="fa fa-caret-down"/></button>
-                        <div className="w3-dropdown-content w3-bar-block w3-dark-grey">
-                            <ApiNavigationLinks/>
-                        </div>
-                    </div>
-                    <Link className="w3-bar-item w3-button w3-hide-small w3-hover-white" to="/releases">Releases</Link>
-                    <Link className="w3-bar-item w3-button w3-hide-small w3-hover-white" to="/contacts">Contacts</Link>
-                </div>
-            </div>
-
-            <nav onClickCapture={this.closeSidebar} className="left-sidebar w3-hide w3-sidebar w3-hide-medium w3-hide-large w3-bar-block w3-large w3-theme-l5"
-                 id="mySidebar">
-                <a  className="w3-right w3-xlarge w3-padding-large w3-hover-black"
-                    title="Close Menu">
-                    <i className="fa fa-remove"/>
-                </a>
-                <h4 className="w3-bar-item"><b>Menu</b></h4>
-                <Link className="w3-bar-item w3-button w3-hover-black" to="/">About</Link>
-                <div className="w3-dropdown-click w3-mobile">
-                    <button onClick={this.onAPIBtnClick} className="w3-bar-item w3-button w3-hover-black api-nav-button"><strong>&gt;</strong>&nbsp;API</button>
-                    <div className="w3-dropdown-content w3-bar-block w3-border">
-                        <ApiNavigationLinks/>
-                    </div>
-                </div>
-                <Link className="w3-bar-item w3-button w3-hover-black" to="/releases">Releases</Link>
-                <Link className="w3-bar-item w3-button w3-hover-black" to="/contacts">Contacts</Link>
-            </nav>
-
-            <Overlay handleClick={this.closeSidebar}/>
-
-            <div className="main-container w3-main w3-container">
-                <Suspense fallback={<Loader/>}>
-                    <Route path="/" exact={true} component={About}/>
-                    <Route path="/api/start" component={Start}/>
-                    <Route path="/api/strategy" component={Strategy}/>
-                    <Route path="/api/service" component={Service}/>
-                    <Route path="/api/grouping" component={Grouping}/>
-                    <Route path="/releases/" component={Releases}/>
-                    <Route path="/contacts/" component={Contacts}/>
-                    <Route path="/devpage/" component={DevPage}/>
-                </Suspense>
-            </div>
-
-            <Footer/>
-        </>;
-
-        if (WATCH) {
-            return (
-                <HashRouter>
-                    {content}
-                </HashRouter>
-            );
-        }
-
         return (
             <BrowserRouter>
-                {content}
+                <>
+                    <div className="w3-top">
+                        <div className="w3-bar w3-theme w3-left-align w3-large">
+                            <a className="w3-hide-medium w3-hide-large w3-bar-item w3-button w3-right w3-hover-white w3-large w3-theme-l1"
+                               onClick={this.toggleSidebar}><i className="fa fa-bars"/></a>
+                            <Link className="w3-bar-item w3-button w3-hover-white w3-theme-l1" to="/">Advanced Logger</Link>
+                            <div className="w3-dropdown-hover">
+                                <button className="w3-button w3-hide-small w3-hover-white">API <i className="fa fa-caret-down"/></button>
+                                <div className="w3-dropdown-content w3-bar-block w3-dark-grey">
+                                    <ApiNavigationLinks/>
+                                </div>
+                            </div>
+                            <Link className="w3-bar-item w3-button w3-hide-small w3-hover-white" to="/releases">Releases</Link>
+                            <Link className="w3-bar-item w3-button w3-hide-small w3-hover-white" to="/contacts">Contacts</Link>
+                        </div>
+                    </div>
+
+                    <nav onClickCapture={this.closeSidebar} className="left-sidebar w3-hide w3-sidebar w3-hide-medium w3-hide-large w3-bar-block w3-large w3-theme-l5"
+                         id="mySidebar">
+                        <a  className="w3-right w3-xlarge w3-padding-large w3-hover-black"
+                            title="Close Menu">
+                            <i className="fa fa-remove"/>
+                        </a>
+                        <h4 className="w3-bar-item"><b>Menu</b></h4>
+                        <Link className="w3-bar-item w3-button w3-hover-black" to="/">About</Link>
+                        <div className="w3-dropdown-click w3-mobile">
+                            <button onClick={this.onAPIBtnClick} className="w3-bar-item w3-button w3-hover-black api-nav-button"><strong>&gt;</strong>&nbsp;API</button>
+                            <div className="w3-dropdown-content w3-bar-block w3-border">
+                                <ApiNavigationLinks/>
+                            </div>
+                        </div>
+                        <Link className="w3-bar-item w3-button w3-hover-black" to="/releases">Releases</Link>
+                        <Link className="w3-bar-item w3-button w3-hover-black" to="/contacts">Contacts</Link>
+                    </nav>
+
+                    <Overlay handleClick={this.closeSidebar}/>
+
+                    <div className="main-container w3-main w3-container">
+                        <Suspense fallback={<Loader/>}>
+                            <Route path="/" exact={true} component={About}/>
+                            <Route path="/api/start" component={Start}/>
+                            <Route path="/api/strategy" component={Strategy}/>
+                            <Route path="/api/service" component={Service}/>
+                            <Route path="/api/grouping" component={Grouping}/>
+                            <Route path="/releases/" component={Releases}/>
+                            <Route path="/contacts/" component={Contacts}/>
+                            <Route path="/devpage/" component={DevPage}/>
+                        </Suspense>
+                    </div>
+
+                    <Footer/>
+                </>
             </BrowserRouter>
         );
     }
