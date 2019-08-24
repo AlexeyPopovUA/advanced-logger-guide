@@ -1,6 +1,6 @@
-## Usage
+### Examples
 
-Please, find working examples for browser and nodejs environments in **/example** folder.
+Please, find the simplest working examples for browser and nodejs environments in the ```/example``` folder.
 
 ### Add to the project
 

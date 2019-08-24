@@ -12,6 +12,7 @@ const Strategy = React.lazy(() => import("./page/Strategy"));
 const Service = React.lazy(() => import("./page/Service"));
 const Grouping = React.lazy(() => import("./page/Grouping"));
 const Releases = React.lazy(() => import("./page/Releases"));
+const Contribution = React.lazy(() => import("./page/Contribution"));
 const Contacts = React.lazy(() => import("./page/Contacts"));
 const DevPage = React.lazy(() => import("./page/DevPage"));
 
@@ -25,13 +26,7 @@ const ApiNavigationLinks = () => (
 );
 
 export default class App extends React.Component {
-    constructor(props: any) {
-        super(props);
-
-        this.onAPIBtnClick = this.onAPIBtnClick.bind(this);
-    }
-
-    public render() {
+    render() {
         return (
             <BrowserRouter>
                 <>
@@ -47,6 +42,7 @@ export default class App extends React.Component {
                                 </div>
                             </div>
                             <Link className="w3-bar-item w3-button w3-hide-small w3-hover-white" to="/releases">Releases</Link>
+                            <Link className="w3-bar-item w3-button w3-hide-small w3-hover-white" to="/contribution">Contribution</Link>
                             <Link className="w3-bar-item w3-button w3-hide-small w3-hover-white" to="/contacts">Contacts</Link>
                         </div>
                     </div>
@@ -80,6 +76,7 @@ export default class App extends React.Component {
                             <Route path="/api/grouping" component={Grouping}/>
                             <Route path="/releases/" component={Releases}/>
                             <Route path="/contacts/" component={Contacts}/>
+                            <Route path="/contribution/" component={Contribution}/>
                             <Route path="/devpage/" component={DevPage}/>
                         </Suspense>
                     </div>
@@ -119,7 +116,7 @@ export default class App extends React.Component {
         }
     }
 
-    private onAPIBtnClick(e: MouseEvent): void {
+    private onAPIBtnClick = (e: MouseEvent) => {
         const targetEl = (e.target as HTMLElement);
 
         if (targetEl.classList.contains("api-nav-button") && targetEl.parentElement) {
@@ -128,7 +125,7 @@ export default class App extends React.Component {
                 this.toggleAPIDropDown(dropDownMenu);
             }
         }
-    }
+    };
 
     private toggleAPIDropDown(el: Element): void {
         if (el) {
