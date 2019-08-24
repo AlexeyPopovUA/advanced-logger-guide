@@ -1,10 +1,11 @@
 import React, {MouseEvent, Suspense} from "react";
-import {BrowserRouter, Link, Route} from "react-router-dom";
+import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
 
 import './../styles/App.scss';
 import Footer from "./Footer";
 import Overlay from "./component/Overlay";
 import Loader from "./component/Loader";
+import Page404 from "./page/404";
 
 const About = React.lazy(() => import("./page/About"));
 const Start = React.lazy(() => import("./page/Start"));
@@ -70,15 +71,18 @@ export default class App extends React.Component {
 
                     <div className="main-container w3-main w3-container">
                         <Suspense fallback={<Loader/>}>
-                            <Route path="/" exact={true} component={About}/>
-                            <Route path="/api/start" component={Start}/>
-                            <Route path="/api/strategy" component={Strategy}/>
-                            <Route path="/api/service" component={Service}/>
-                            <Route path="/api/grouping" component={Grouping}/>
-                            <Route path="/releases/" component={Releases}/>
-                            <Route path="/contacts/" component={Contacts}/>
-                            <Route path="/contribution/" component={Contribution}/>
-                            <Route path="/devpage/" component={DevPage}/>
+                            <Switch>
+                                <Route path="/" exact={true} component={About}/>
+                                <Route path="/api/start" exact={true} component={Start}/>
+                                <Route path="/api/strategy" exact={true} component={Strategy}/>
+                                <Route path="/api/service" exact={true} component={Service}/>
+                                <Route path="/api/grouping" exact={true} component={Grouping}/>
+                                <Route path="/releases/" exact={true} component={Releases}/>
+                                <Route path="/contacts/" exact={true} component={Contacts}/>
+                                <Route path="/contribution/" exact={true} component={Contribution}/>
+                                <Route path="/devpage/" exact={true} component={DevPage}/>
+                                <Route component={Page404}/>
+                            </Switch>
                         </Suspense>
                     </div>
 
