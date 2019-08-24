@@ -1,8 +1,6 @@
-### Services
+Currently, module supports Sumologic, Loggly and Elastic search services out of the box.
 
-Currently, module supports only Sumologic, Loggly and Elastic search services out of the box.
-
-#### Sumologic (see https://www.sumologic.com/)
+### Sumologic (see https://www.sumologic.com/)
 
 ```javascript
 //Configuration for communication with Sumologic.
@@ -35,7 +33,7 @@ const config = {serviceConfig, defaultLogConfig};
 const service = new service.SumologicService(config);
 ```
 
-#### Loggly (see https://www.loggly.com/)
+### Loggly (see https://www.loggly.com/)
 
 ```javascript
 //Configuration for communication with Loggly.
@@ -66,7 +64,7 @@ const config = {serviceConfig, defaultLogConfig};
 const service = new service.LogglyService(config);
 ```
 
-#### Elastic Search Service (see https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-gsg-upload-data.html)
+### Elastic Search Service (see https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-gsg-upload-data.html)
 
 Logger supports sending data to Elasticsearch service endpoint. It was tested on AWS-based instance of Elasticsearch and Kibana. Ideally, it should work also on instance of any other cloud provider.
 
@@ -100,7 +98,7 @@ const config = {serviceConfig, defaultLogConfig};
 const service = new service.ElasticsearchService(config);
 ```
 
-#### Custom serializer
+### Custom serializer
 
 There are situations when you need a "special" representation of logs instead of JSON before sending them to remote storage. For example, key-value pairs:
 
@@ -125,6 +123,6 @@ const testLogs = [
 service = new LogglyService(configWithSerializer);
 ```
 
-#### Custom implementation of service
+### Custom implementation of service
 
 TODO

@@ -1,5 +1,3 @@
-### Strategies
-
 Strategies are components that "know" when is it right time to send logs.
 
 There are next strategies available:
@@ -9,7 +7,7 @@ There are next strategies available:
 * OnIntervalStrategy
 * OnRequestStrategy
 
-#### InstantStrategy
+### InstantStrategy
 
 Does not require parameters. It just sends the log as soon as it appears in logger.
 
@@ -18,7 +16,7 @@ const {strategy} = require("advanced-logger");
 const strategy = new strategy.InstantStrategy();
 ```
 
-#### OnBundleSizeStrategy
+### OnBundleSizeStrategy
 
 Can accept a configuration object with an optional "maxBundle" value, which determines what is a maximal amount of logs it should collect before sending to the service. Default number is 100.
 
@@ -30,7 +28,7 @@ const config = {
 const strategy = new strategy.OnBundleSizeStrategy(config);
 ```
 
-#### OnIntervalStrategy
+### OnIntervalStrategy
 
 Can accept a configuration object with an optional "interval" value, which determines what is a time interval for collecting logs before sending them to the service. Default number is 15000.
 
@@ -42,7 +40,7 @@ const config = {
 const strategy = new strategy.OnIntervalStrategy(config);
 ```
 
-#### OnRequestStrategy
+### OnRequestStrategy
 
 This strategy does not do anything :) . It will send logs only after manual call to ```logger.sendAllLogs();``` method.
 
@@ -56,6 +54,6 @@ const strategy = new strategy.OnRequestStrategy();
 logger.sendAllLogs();
 ```
 
-#### Custom implementation of strategy
+### Custom implementation of strategy
 
 TODO
