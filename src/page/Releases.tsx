@@ -24,12 +24,22 @@ export default class Releases extends React.Component<any, IState> {
     public render() {
         if (this.state.content) {
             return (
-                <div className="page-content page-releases">
-                    <h1 className="w3-text-teal">Releases</h1>
-                    <div className="page-content">
-                        <p dangerouslySetInnerHTML={{__html: this.state.content}}/>
-                    </div>
-                </div>
+                <>
+                    <section className="hero is-light">
+                        <div className="hero-body">
+                            <div className="container">
+                                <h1 className="title">Releases</h1>
+                            </div>
+                        </div>
+                    </section>
+                    <section className="section page-content page-about">
+                        <div className="container">
+                            <div className="page-content content">
+                                <div dangerouslySetInnerHTML={{__html: this.state.content}}/>
+                            </div>
+                        </div>
+                    </section>
+                </>
             );
         } else {
             return "";
@@ -57,8 +67,8 @@ export default class Releases extends React.Component<any, IState> {
         const renderer = new marked.Renderer();
 
         renderer.heading = (text: string, level: number) => {
-            level++;
-            return text !== "Change Log" ? `<h${level}>${text}</h${level}>` : "";
+            //level++;
+            return text !== "Changelog" ? `<h${level} class="title">${text}</h${level}>` : "";
         };
 
         marked.setOptions({renderer});

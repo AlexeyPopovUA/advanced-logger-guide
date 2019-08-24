@@ -4,10 +4,20 @@ import content from "./ContactsContent.md";
 const dangerousHtml = {__html: content};
 
 export default () => (
-    <div className="page-content page-contacts">
-        <h1 className="w3-text-teal">Contacts</h1>
-        <div className="page-content">
-            <div dangerouslySetInnerHTML={dangerousHtml}/>
-        </div>
-    </div>
+    <>
+        <section className="hero is-light">
+            <div className="hero-body">
+                <div className="container">
+                    <h1 className="title">Contacts</h1>
+                </div>
+            </div>
+        </section>
+        <section className="section page-content page-about">
+            <div className="container">
+                <div className="page-content content">
+                    <div dangerouslySetInnerHTML={dangerousHtml}/>
+                </div>
+            </div>
+        </section>
+    </>
 );

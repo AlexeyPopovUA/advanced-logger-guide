@@ -25,6 +25,8 @@ const paths = [
 
 const markedRenderer = new marked.Renderer();
 
+markedRenderer.heading = (text, level) => `<h${level} class="title">${text}</h${level}>`;
+
 const Renderer = jsdomRenderer;
 
 module.exports = env => {
@@ -190,7 +192,9 @@ module.exports = env => {
                                     if (code.startsWith("npm")) {
                                         return highlight(code, languages.bash, "sh");
                                     } else {
-                                        return highlight(code, languages.javascript, "js");
+                                        return highlight(code, languages.javascript, "js")
+                                            // "number" class has a conflict with bulma library
+                                            .replace("token number", "token symbol");
                                     }
                                 }
                             }

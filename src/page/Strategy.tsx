@@ -4,10 +4,20 @@ import content from "./StrategyContent.md";
 const dangerousHtml = {__html: content};
 
 export default () => (
-    <article className="page-content page-strategy">
-        <h1 className="w3-text-teal">Strategy</h1>
-        <div className="page-content">
-            <div dangerouslySetInnerHTML={dangerousHtml}/>
-        </div>
-    </article>
+    <>
+        <section className="hero is-light">
+            <div className="hero-body">
+                <div className="container">
+                    <h1 className="title">Strategy</h1>
+                </div>
+            </div>
+        </section>
+        <section className="section page-content page-about">
+            <div className="container">
+                <div className="page-content content">
+                    <div dangerouslySetInnerHTML={dangerousHtml}/>
+                </div>
+            </div>
+        </section>
+    </>
 );
