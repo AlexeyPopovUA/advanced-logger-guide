@@ -123,6 +123,10 @@ const testLogs = [
 service = new LogglyService(configWithSerializer);
 ```
 
+### Console log service (for debugging purposes)
+
+TODO
+
 ### Custom implementation of service
 
 TODO

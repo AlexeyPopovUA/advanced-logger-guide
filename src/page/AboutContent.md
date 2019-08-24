@@ -1,14 +1,12 @@
 ## The idea
 
-The main idea of this module is to create an isomorphic log sending tool, that can be extended by internal/external plugins.
+This is an isomorphic log sending tool, that can be extended by internal/external plugins.
 
-It has bundles for browser and nodejs environments.
+It has strategies ("when to send logs") and services ("where to send logs") and can be extended with custom implementations.
 
-It can be extended with custom strategy ("when to send logs") and service ("where to send logs"). See usage examples.
-
-It does not restrict you with conventions, for example, existence of "logSeverity", "ErrorId" or "message" fields in log.
-
-It supports any format of logs via custom serializer.
+You can send JSONs or formatted strings as logs. Custom record formatter can be used.
+ 
+It does not force conventions like using pre-defined record fields "logSeverity", "ErrorId" or "message".
 
 ## Features
 
@@ -20,7 +18,7 @@ It supports any format of logs via custom serializer.
   3.  mixed ("interval" + "on request") (will be done soon)
   4.  on bundle size (for example, sends bundles of 100 logs)
   5.  instant (received 1 log -> sent 1 log)
-* It is able to group duplicated logs in certain time interval (for rapid fire of the same logs)
+* It is able to group duplicated logs in certain time interval (for rapid firing of the same log messages)
 * It is not afraid of circular links in log objects
 * It supports custom format for logs (custom serializer)
 * It supports different remote logger endpoints (SumoLogic, Loggly and Elasticsearch). Who is the next? ᕙ(ಠ.ಠ)ᕗ
