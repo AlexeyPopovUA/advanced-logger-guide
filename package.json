@@ -20,7 +20,6 @@
     "build-prod": "webpack --config webpack.config.js --env.prod",
     "build-dev": "webpack --config webpack.config.js  --env.dev",
     "dev": "webpack-dev-server --config webpack.config.js  --env.dev --env.watch",
-    "deploy": "gh-pages -d build",
     "bundlesize": "bundlesize"
   },
   "devDependencies": {
