@@ -136,3 +136,11 @@ pre[class*="language-"] {
 .token.entity {
   cursor: help;
 }
+
+//custom styles
+
+pre {
+  overflow: auto;
+  word-wrap: normal;
+  white-space: pre;
+}
