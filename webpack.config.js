@@ -12,6 +12,17 @@ const jsdomRenderer = require('@prerenderer/renderer-jsdom');
 const marked = require("marked");
 const {highlight, languages} = require("prismjs");
 require('prismjs/components/prism-bash');
+const SitemapWebpackPlugin = require('sitemap-webpack-plugin').default;
+
+const paths = [
+    '/',
+    '/api/start',
+    '/api/strategy',
+    '/api/service',
+    //'/api/grouping',
+    '/contribution',
+    '/contacts'
+];
 
 const markedRenderer = new marked.Renderer();
 
@@ -133,6 +144,10 @@ module.exports = env => {
                     headless: true
                 })
             })] : []),
+            new SitemapWebpackPlugin('https://advancedlogger.com', paths, {
+                lastMod: true,
+                changeFreq: 'monthly'
+            })
         ],
         module: {
             rules: [
