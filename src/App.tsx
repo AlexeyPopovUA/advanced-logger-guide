@@ -62,6 +62,7 @@ export default class App extends React.Component {
                             </div>
                         </div>
                         <Link className="w3-bar-item w3-button w3-hover-black" to="/releases">Releases</Link>
+                        <Link className="w3-bar-item w3-button w3-hover-black" to="/contribution">Contribution</Link>
                         <Link className="w3-bar-item w3-button w3-hover-black" to="/contacts">Contacts</Link>
                     </nav>
 
