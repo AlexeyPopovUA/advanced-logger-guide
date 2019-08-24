@@ -11,6 +11,7 @@ const PrerenderSPAPlugin = require('prerender-spa-plugin');
 const jsdomRenderer = require('@prerenderer/renderer-jsdom');
 const marked = require("marked");
 const {highlight, languages} = require("prismjs");
+require('prismjs/components/prism-bash');
 
 const markedRenderer = new marked.Renderer();
 
@@ -172,7 +173,14 @@ module.exports = env => {
                             loader: "markdown-loader",
                             options: {
                                 renderer: markedRenderer,
-                                highlight: code => highlight(code, languages.javascript, "js")
+                                highlight: code => {
+                                    // Lets imagine that all bash scripts start with "npm" word :)
+                                    if (code.startsWith("npm")) {
+                                        return highlight(code, languages.bash, "sh");
+                                    } else {
+                                        return highlight(code, languages.javascript, "js");
+                                    }
+                                }
                             }
                         }
                     ]
