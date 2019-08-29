@@ -19,7 +19,6 @@ const paths = [
     '/api/start',
     '/api/strategy',
     '/api/service',
-    //'/api/grouping',
     '/contribution',
     '/contacts'
 ];
@@ -132,11 +131,9 @@ module.exports = env => {
                     '/',
                     '/api/start',
                     '/api/strategy',
-                    "/api/service",
-                    "/api/grouping",
-                    "/releases",
-                    "/contacts",
-                    "/devpage"
+                    '/api/service',
+                    '/contribution',
+                    '/contacts'
                 ],
                 renderer: new Renderer({
                     maxConcurrentRoutes: 4,

@@ -77,10 +77,10 @@ export default class App extends React.Component {
                                 <Route path="/api/strategy" exact={true} component={Strategy}/>
                                 <Route path="/api/service" exact={true} component={Service}/>
                                 <Route path="/api/grouping" exact={true} component={Grouping}/>
-                                <Route path="/releases/" exact={true} component={Releases}/>
-                                <Route path="/contacts/" exact={true} component={Contacts}/>
-                                <Route path="/contribution/" exact={true} component={Contribution}/>
-                                <Route path="/devpage/" exact={true} component={DevPage}/>
+                                <Route path="/releases" exact={true} component={Releases}/>
+                                <Route path="/contacts" exact={true} component={Contacts}/>
+                                <Route path="/contribution" exact={true} component={Contribution}/>
+                                <Route path="/devpage" exact={true} component={DevPage}/>
                                 <Route component={Page404}/>
                             </Switch>
                         </Suspense>
