@@ -19,6 +19,15 @@ or
 
 In nodejs:
 
+
+Installation:
+
+```bash
+npm install --save advanced-logger
+```
+
+Usage in nodejs:
+
 ```javascript
 const {AdvancedLogger, service, strategy} = require('advanced-logger');
 ```
