@@ -120,12 +120,16 @@ const testLogs = [
     {test: "test321"}
 ];
 
-service = new LogglyService(configWithSerializer);
+const service = new service.LogglyService(configWithSerializer);
 ```
 
 ### Console log service (for debugging purposes)
 
-TODO
+ConsoleService service uses console.log to log the logs instead of sending anywhere :) And nothing more. Just for debugging.
+
+```javascript
+const service = new service.ConsoleService();
+```
 
 ### Custom implementation of service
 
