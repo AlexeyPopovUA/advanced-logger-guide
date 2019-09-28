@@ -11,7 +11,7 @@
     "prismjs": "1.17.1",
     "react": "16.9.0",
     "react-dom": "16.9.0",
-    "react-router-dom": "5.0.1",
+    "react-router-dom": "5.1.1",
     "whatwg-fetch": "3.0.0"
   },
   "scripts": {
