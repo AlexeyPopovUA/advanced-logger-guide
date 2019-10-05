@@ -9,8 +9,8 @@
     "bulma": "0.7.5",
     "marked": "0.7.0",
     "prismjs": "1.17.1",
-    "react": "16.10.1",
-    "react-dom": "16.10.1",
+    "react": "16.10.2",
+    "react-dom": "16.10.2",
     "react-router-dom": "5.1.2",
     "whatwg-fetch": "3.0.0"
   },
