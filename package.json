@@ -71,7 +71,7 @@
     "ts-jest": "24.1.0",
     "typescript": "3.6.3",
     "uglifyjs-webpack-plugin": "2.2.0",
-    "webpack": "4.41.0",
+    "webpack": "4.41.1",
     "webpack-cli": "3.3.9",
     "webpack-dev-server": "3.8.2",
     "workbox-webpack-plugin": "4.3.1"
