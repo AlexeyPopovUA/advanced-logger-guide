@@ -35,7 +35,7 @@
     "@commitlint/cli": "8.2.0",
     "@commitlint/config-conventional": "8.2.0",
     "@prerenderer/renderer-jsdom": "0.2.0",
-    "@types/jest": "24.0.22",
+    "@types/jest": "24.0.23",
     "@types/marked": "0.7.0",
     "@types/node": "11.13.9",
     "@types/prismjs": "1.16.0",
