@@ -13,7 +13,7 @@ Does not require parameters. It just sends the log as soon as it appears in logg
 
 ```javascript
 const {strategy} = require("advanced-logger");
-const strategy = new strategy.InstantStrategy();
+const instantStrategy = new strategy.InstantStrategy();
 ```
 
 ### OnBundleSizeStrategy
@@ -25,7 +25,7 @@ const {strategy} = require("advanced-logger");
 const config = {
     maxBundle: 123
 };
-const strategy = new strategy.OnBundleSizeStrategy(config);
+const bundleStrategy = new strategy.OnBundleSizeStrategy(config);
 ```
 
 ### OnIntervalStrategy
@@ -37,7 +37,7 @@ const {strategy} = require("advanced-logger");
 const config = {
     interval: 10000
 };
-const strategy = new strategy.OnIntervalStrategy(config);
+const intervalStrategy = new strategy.OnIntervalStrategy(config);
 ```
 
 ### OnRequestStrategy
@@ -47,7 +47,7 @@ This strategy does not do anything :) . It will send logs only after manual call
 ```javascript
 const {strategy} = require("advanced-logger");
 
-const strategy = new strategy.OnRequestStrategy();
+const requestStrategy = new strategy.OnRequestStrategy();
 
 //"logger" is an instance of AdvancedLogger
 
