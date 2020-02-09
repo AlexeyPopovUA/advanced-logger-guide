@@ -30,7 +30,7 @@ const defaultLogConfig = {
 //general config
 const config = {serviceConfig, defaultLogConfig};
 
-const service = new service.SumologicService(config);
+const sService = new service.SumologicService(config);
 ```
 
 ### Loggly (see https://www.loggly.com/)
@@ -61,7 +61,7 @@ const defaultLogConfig = {
 //general config
 const config = {serviceConfig, defaultLogConfig};
 
-const service = new service.LogglyService(config);
+const lService = new service.LogglyService(config);
 ```
 
 ### Elastic Search Service (see https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-gsg-upload-data.html)
@@ -95,7 +95,7 @@ const defaultLogConfig = {
 //general config
 const config = {serviceConfig, defaultLogConfig};
 
-const service = new service.ElasticsearchService(config);
+const esService = new service.ElasticsearchService(config);
 ```
 
 ### Custom serializer
@@ -129,4 +129,49 @@ TODO
 
 ### Custom implementation of service
 
-TODO
+You can implement your own service. Here is an example of extending BaseRemoteService class for implementation of http service that sends logs in json form:
+
+```javascript
+const defaultLogConfig = {
+    BuildVersion: 123,
+    Platform: "nodejs",
+    Severity: "LogLevel.DEBUG",
+    Data: "",
+    Timestamp: "",
+    Exception: "",
+    Message: "",
+    Category: ""
+};
+
+const serviceConfig = {
+    //todo Replace with a real URL
+    url: "https://www.google.nl",
+    method: "POST"
+};
+
+const config = {serviceConfig, defaultLogConfig};
+
+class CustomHttpService extends service.BaseRemoteService {
+    /**
+     * @override
+     */
+    constructor(config) {
+        console.log("constructor", config);
+        return super(config);
+    }
+
+    /**
+     * @override
+     */
+    preparePayload(logs) {
+        const resultList = logs.map(log => ({...this.defaultLogConfig, ...log}));
+        console.log("preparePayload", resultList);
+        return Promise.resolve(this.serializer(resultList));
+    }
+}
+
+const logger = new AdvancedLogger({
+    service: new CustomHttpService(config),
+    strategy: new strategy.OnRequestStrategy()
+});
+```
