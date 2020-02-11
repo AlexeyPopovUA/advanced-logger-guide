@@ -6,8 +6,8 @@ cache:
 
 install:
   - npm ci
+  - npm run type-check
   - npm test
 
 script:
   - npm run build-release
-  - npm run bundlesize

@@ -21,7 +21,8 @@
     "build-prod": "webpack --config webpack.config.js --env.prod",
     "build-dev": "webpack --config webpack.config.js  --env.dev",
     "dev": "webpack-dev-server --config webpack.config.js  --env.dev --env.watch",
-    "bundlesize": "bundlesize"
+    "type-check": "tsc --noEmit",
+    "update-dependencies": "npx npm-check-updates -u --packageFile package.json"
   },
   "devDependencies": {
     "@babel/core": "7.8.4",
