@@ -43,7 +43,7 @@ module.exports = env => {
         },
         target: "web",
         mode,
-        devtool: "sourcemaps",
+        devtool: "source-map",
         watch,
         watchOptions: {
             aggregateTimeout: 300,
@@ -53,7 +53,11 @@ module.exports = env => {
         devServer: {
             contentBase: path.join(__dirname, 'dist'),
             port: 9000,
-            historyApiFallback: true
+            historyApiFallback: true,
+            // shows build errors in browser if any
+            overlay: true,
+            // resources are in ./dist folder
+            writeToDisk: true,
         },
         output: {
             filename: '[name].[contenthash].js',
@@ -76,7 +80,7 @@ module.exports = env => {
         },
         plugins: [
             new CleanWebpackPlugin({
-                cleanOnceBeforeBuildPatterns: ["**/*", "../coverage", "../cache-jest"],
+                cleanOnceBeforeBuildPatterns: ["**/*"],
                 dangerouslyAllowCleanPatternsOutsideProject: true,
                 dry: false
             }),
@@ -121,10 +125,15 @@ module.exports = env => {
                     }
                 ]
             }),
-            new CopyWebpackPlugin([
-                {from: './resources/manifest.json', to: "./", flatten: true},
-                {from: './images', to: "./"},
-            ]),
+            new CopyWebpackPlugin({
+                patterns: [
+                    {from: './resources/manifest.json', to: "./", flatten: true},
+                    {from: './images', to: "./"}
+                ],
+                options: {
+                    concurrency: 100
+                }
+            }),
             //new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
             ...(!watch ? [new PrerenderSPAPlugin({
                 staticDir: path.join(__dirname, 'dist'),
@@ -143,9 +152,10 @@ module.exports = env => {
                     headless: true
                 })
             })] : []),
-            new SitemapWebpackPlugin('https://advancedlogger.com', paths, {
+            new SitemapWebpackPlugin('https://www.advancedlogger.com', paths, {
                 lastMod: true,
-                changeFreq: 'monthly'
+                changefreq: 'weekly',
+                priority: '0.7'
             })
         ],
         module: {
@@ -172,7 +182,9 @@ module.exports = env => {
                         {
                             loader: 'sass-loader',
                             options: {
-                                includePaths: ["./styles"]
+                                sassOptions: {
+                                    includePaths: ["./styles"]
+                                }
                             }
                         }
                     ]

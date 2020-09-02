@@ -5,10 +5,10 @@ module.exports = {
         "DEBUG": true
     },
     "transform": {
-        ".(ts|tsx)": "ts-jest"
+        "^.+\\.[jt]sx?$": "ts-jest"
     },
     "collectCoverageFrom": [
-        "src/**/*"
+        "src/**/*.tsx"
     ],
     "coveragePathIgnorePatterns": [
         "/__tests__/",

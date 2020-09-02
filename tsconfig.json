@@ -3,10 +3,10 @@
     "noEmit": true,
     "baseUrl": ".",
     "outDir": "dist",
-    "module": "esnext",
-    "target": "esnext",
+    "module": "commonjs",
+    "target": "ES2019",
     "lib": [
-      "es6",
+      "ES2019",
       "dom"
     ],
     "sourceMap": true,
