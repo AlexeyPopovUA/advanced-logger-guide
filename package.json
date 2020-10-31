@@ -65,7 +65,7 @@
     "prerender-spa-plugin": "3.4.0",
     "react-testing-library": "8.0.1",
     "sass-loader": "10.0.4",
-    "sitemap-webpack-plugin": "0.8.1",
+    "sitemap-webpack-plugin": "0.9.0",
     "source-map-loader": "1.1.1",
     "standard-version": "9.0.0",
     "style-loader": "2.0.0",
