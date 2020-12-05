@@ -36,7 +36,7 @@
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-conventional": "11.0.0",
     "@prerenderer/renderer-jsdom": "0.2.0",
-    "@types/jest": "26.0.15",
+    "@types/jest": "26.0.16",
     "@types/marked": "1.2.0",
     "@types/node": "14.14.10",
     "@types/prismjs": "1.16.2",
