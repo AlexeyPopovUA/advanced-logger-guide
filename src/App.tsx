@@ -1,7 +1,7 @@
 import React, {Suspense} from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 
-import './../styles/App.scss';
+import './App.scss';
 import Header from "./Header";
 import Footer from "./Footer";
 import Loader from "./component/Loader";

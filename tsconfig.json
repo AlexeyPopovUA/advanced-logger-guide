@@ -4,9 +4,9 @@
     "baseUrl": ".",
     "outDir": "dist",
     "module": "commonjs",
-    "target": "ES2019",
+    "target": "ESNext",
     "lib": [
-      "ES2019",
+      "ESNext",
       "dom"
     ],
     "sourceMap": true,
