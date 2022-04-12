@@ -3,8 +3,7 @@ module.exports = {
         //"debug": true,
         "targets": {
             "browsers": [
-                "> 1%",
-                "IE >= 11"
+                "defaults"
             ]
         }
     }]],
