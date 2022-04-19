@@ -9,6 +9,7 @@ frontend:
     build:
       commands:
         - if [ "${AWS_BRANCH}" = "master" ]; then npm run build-release; else npm run build-prod; fi
+        - npm run pre-render
   artifacts:
     baseDirectory: ./dist
     files:
