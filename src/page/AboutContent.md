@@ -25,11 +25,11 @@ It supports any format of logs via custom serializer.
 
 ## Runtime environment support
 
-Builds are generated as ES5 bundles for nodejs and browser environments.
+Builds are generated as ES2015 bundles for nodejs and browser environments.
 
 NodeJS - tested on latest lts
 
-Browser - all latest browsers + IE10, IE11 (fetch polyfill)
+Browser - all latest browsers, that support ES2015 JS.
 
 ## Links
 
