@@ -61,6 +61,7 @@
     "html-webpack-plugin": "5.5.0",
     "husky": "7.0.4",
     "jest": "28.0.3",
+    "jest-environment-jsdom": "^28.0.2",
     "jsdom": "19.0.0",
     "markdown-loader": "8.0.0",
     "mini-css-extract-plugin": "^2.6.0",
