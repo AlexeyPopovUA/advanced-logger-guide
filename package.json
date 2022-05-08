@@ -6,7 +6,7 @@
   },
   "homepage": "https://alexeypopovua.github.io/advanced-logger-guide",
   "dependencies": {
-    "bulma": "0.9.3",
+    "bulma": "0.9.4",
     "marked": "4.0.15",
     "prismjs": "1.28.0",
     "react": "18.1.0",
