@@ -35,7 +35,7 @@
     "@babel/preset-typescript": "7.16.7",
     "@commitlint/cli": "16.2.4",
     "@commitlint/config-conventional": "16.2.4",
-    "@pmmmwh/react-refresh-webpack-plugin": "0.5.5",
+    "@pmmmwh/react-refresh-webpack-plugin": "0.5.10",
     "@prerenderer/prerenderer": "0.7.2",
     "@prerenderer/renderer-jsdom": "0.2.0",
     "@testing-library/react": "13.2.0",
